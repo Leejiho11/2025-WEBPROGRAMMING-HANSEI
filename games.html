@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임 목록 - 내가 추천하는 게임 모음</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+        }
+
+        .active {
+            color: #4a90e2 !important;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #4a90e2, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .game-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .steam-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #1b2838;
+            color: #66c0f4;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid #66c0f4;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-image.cyberpunk { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ff6b6b" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Cyberpunk 2077</text></svg>'); }
+        .game-image.witcher { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%234ecdc4" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">The Witcher 3</text></svg>'); }
+        .game-image.portal { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ffa726" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Portal 2</text></svg>'); }
+        .game-image.stardew { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%2366bb6a" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Stardew Valley</text></svg>'); }
+        .game-image.hollow { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23424242" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Hollow Knight</text></svg>'); }
+        .game-image.tetris { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%239c27b0" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Tetris Effect</text></svg>'); }
+
+        .genre-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .genre-action { background-color: #e74c3c; }
+        .genre-rpg { background-color: #3498db; }
+        .genre-puzzle { background-color: #9b59b6; }
+        .genre-simulation { background-color: #2ecc71; }
+
+        .game-content {
+            padding: 25px;
+        }
+
+        .game-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4a90e2;
+        }
+
+        .game-description {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .game-reason {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .game-reason h4 {
+            color: #4a90e2;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html" class="active">게임 목록</a></li>
+                <li><a href="action.html">액션</a></li>
+                <li><a href="rpg.html">RPG</a></li>
+                <li><a href="puzzle.html">퍼즐</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">추천 게임 모음</h1>
+        <p style="text-align: center; color: #cccccc; margin-bottom: 40px;">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
+
+        <div class="games-grid">
+            <!-- Cyberpunk 2077 -->
+            <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image cyberpunk">
+                        <span class="genre-tag genre-action">액션</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Cyberpunk 2077</h3>
+                        <p class="game-description">
+                            미래형 오픈 월드 RPG. 나이트 시티에서 펼쳐지는 사이버펑크 세계를 경험할 수 있습니다.
+                            키아누 리브스가 등장하는 스토리와 화려한 그래픽이 인상적입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>몰입감 넘치는 스토리와 미래적 세계관이 정말 매력적이에요. 업데이트로 많이 개선되어서 지금이 플레이하기 좋은 시기입니다!</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- The Witcher 3 -->
+            <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image witcher">
+                        <span class="genre-tag genre-rpg">RPG</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">The Witcher 3: Wild Hunt</h3>
+                        <p class="game-description">
+                            판타지 세계의 걸작 RPG. 게롤트가 되어 광활한 세계를 모험하며 
+                            시리의 행방을 찾는 서사적인 이야기를 경험할 수 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>RPG 중에서도 최고봉! 선택에 따른 다양한 결말과 풍부한 사이드 퀘스트로 수백 시간도 부족합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Portal 2 -->
+            <a href="https://store.steampowered.com/app/620/Portal_2/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image portal">
+                        <span class="genre-tag genre-puzzle">퍼즐</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Portal 2</h3>
+                        <p class="game-description">
+                            창의적인 퍼즐 게임의 대표작. 포털 건을 이용해 퍼즐을 풀어나가며
+                            GLaDOS와의 흥미진진한 스토리를 즐길 수 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>머리를 써야 하는 퍼즐이지만 절대 답답하지 않아요! 유머러스한 대사와 협동 모드까지 완벽합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Stardew Valley -->
+            <a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image stardew">
+                        <span class="genre-tag genre-simulation">시뮬레이션</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Stardew Valley</h3>
+                        <p class="game-description">
+                            평화로운 농장 생활 시뮬레이션. 농사를 짓고, 동물을 키우며,
+                            마을 사람들과 관계를 쌓아가는 힐링 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>스트레스 해소에 최고! 픽셀 그래픽이 귀엽고 BGM도 너무 좋아요. 시간 가는 줄 모르게 됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Hollow Knight -->
+            <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image hollow">
+                        <span class="genre-tag genre-action">액션</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Hollow Knight</h3>
+                        <p class="game-description">
+                            아름다운 2D 메트로배니아 게임. 잊혀진 왕국을 탐험하며
+                            도전적인 보스전과 숨겨진 비밀들을 발견할 수 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>손으로 그린 듯한 아트워크가 정말 아름답고, 적당한 난이도가 성취감을 줍니다. 음악도 환상적이에요!</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tetris Effect -->
+            <a href="https://store.steampowered.com/app/1003590/Tetris_Effect_Connected/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image tetris">
+                        <span class="genre-tag genre-puzzle">퍼즐</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Tetris Effect</h3>
+                        <p class="game-description">
+                            클래식 테트리스에 음악과 비주얼 효과를 더한 예술작품.
+                            명상적인 경험과 함께 테트리스의 새로운 매력을 느낄 수 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>단순한 테트리스가 아니라 정말 예술 작품 같아요! VR로 플레이하면 더욱 환상적인 경험을 할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 내가 추천하는 게임 모음. 모든 권리 보유.</p>
+        <p>게임을 사랑하는 대학생이 만든 추천 사이트입니다.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG 게임 - 내가 추천하는 게임 모음</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        .active {
+            color: #3498db !important;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #3498db, #5dade2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-description {
+            font-size: 20px;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+            border-color: #3498db;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-image.witcher { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%234ecdc4" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">The Witcher 3</text></svg>'); }
+        .game-image.skyrim { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%235d4e75" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Skyrim</text></svg>'); }
+        .game-image.persona { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23e74c3c" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Persona 5</text></svg>'); }
+
+        .rating {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(0,0,0,0.8);
+            color: #ffd700;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .playtime {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .game-content {
+            padding: 25px;
+        }
+
+        .game-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .game-description {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .game-features {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .game-features h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+
+        .features-list {
+            list-style: none;
+            color: #cccccc;
+        }
+
+        .features-list li {
+            margin-bottom: 5px;
+        }
+
+        .features-list li:before {
+            content: "🗡️ ";
+            color: #3498db;
+        }
+
+        .game-reason {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .game-reason h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="action.html">액션</a></li>
+                <li><a href="rpg.html" class="active">RPG</a></li>
+                <li><a href="puzzle.html">퍼즐</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">🏰 RPG 게임</h1>
+            <p class="page-description">
+                깊이 있는 스토리와 캐릭터 성장의 재미! 
+                수십에서 수백 시간을 투자해도 아깝지 않은 명작 RPG들을 소개합니다.
+            </p>
+        </div>
+
+        <div class="games-grid">
+            <!-- The Witcher 3 -->
+            <div class="game-card">
+                <div class="game-image witcher">
+                    <span class="rating">★ 9.8/10</span>
+                    <span class="playtime">100+ 시간</span>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">The Witcher 3: Wild Hunt</h3>
+                    <p class="game-description">
+                        판타지 세계의 걸작 오픈 월드 RPG. 
+                        게롤트가 되어 시리의 행방을 찾는 서사적인 모험을 떠나보세요.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>광활한 오픈 월드</li>
+                            <li>선택에 따른 다양한 결말</li>
+                            <li>풍부한 사이드 퀘스트</li>
+                            <li>깊이 있는 캐릭터들</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>RPG의 교과서 같은 게임! 모든 선택이 의미 있고, 사이드 퀘스트조차 메인 스토리 못지않게 흥미진진해요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skyrim -->
+            <div class="game-card">
+                <div class="game-image skyrim">
+                    <span class="rating">★ 9.4/10</span>
+                    <span class="playtime">200+ 시간</span>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">The Elder Scrolls V: Skyrim</h3>
+                    <p class="game-description">
+                        용의 혈통을 가진 드래곤본이 되어 스카이림 대륙을 모험하는 
+                        자유도 최고의 오픈 월드 RPG입니다.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>무제한 자유도</li>
+                            <li>다양한 스킬 트리</li>
+                            <li>모드 지원</li>
+                            <li>자유로운 캐릭터 빌드</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>하고 싶은 건 뭐든지 할 수 있는 게임! 마법사든 도둑이든 전사든 내 마음대로 플레이할 수 있어요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Persona 5 -->
+            <div class="game-card">
+                <div class="game-image persona">
+                    <span class="rating">★ 9.6/10</span>
+                    <span class="playtime">80+ 시간</span>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">Persona 5 Royal</h3>
+                    <p class="game-description">
+                        현실과 이세계를 오가며 펼쳐지는 독특한 일본 RPG. 
+                        학교생활과 던전 탐험을 동시에 즐길 수 있습니다.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>독특한 아트 스타일</li>
+                            <li>페르소나 수집과 합성</li>
+                            <li>일상 시뮬레이션</li>
+                            <li>깊이 있는 스토리</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>스타일리시한 연출과 재즈 음악이 정말 멋져요! 일상 파트와 전투 파트의 균형도 완벽합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 내가 추천하는 게임 모음. 모든 권리 보유.</p>
+        <p>RPG로 새로운 세계를 탐험하세요! ⚔️</p>
+    </footer>
+</body>
+</html>

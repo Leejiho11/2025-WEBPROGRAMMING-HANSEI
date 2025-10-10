@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>액션 게임 - 내가 추천하는 게임 모음</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .active {
+            color: #e74c3c !important;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #e74c3c, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-description {
+            font-size: 20px;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .game-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.3);
+            border-color: #e74c3c;
+        }
+
+        .steam-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #1b2838;
+            color: #66c0f4;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid #66c0f4;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-image.cyberpunk { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ff6b6b" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Cyberpunk 2077</text></svg>'); }
+        .game-image.hollow { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23424242" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Hollow Knight</text></svg>'); }
+        .game-image.hades { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23d32f2f" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Hades</text></svg>'); }
+
+        .game-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .steam-tag {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #1b2838;
+            color: #66c0f4;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid #66c0f4;
+        }
+
+        .rating {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(0,0,0,0.8);
+            color: #ffd700;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .game-content {
+            padding: 25px;
+        }
+
+        .game-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .game-description {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .game-features {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .game-features h4 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+
+        .features-list {
+            list-style: none;
+            color: #cccccc;
+        }
+
+        .features-list li {
+            margin-bottom: 5px;
+        }
+
+        .features-list li:before {
+            content: "⚡ ";
+            color: #e74c3c;
+        }
+
+        .game-reason {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .game-reason h4 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="action.html" class="active">액션</a></li>
+                <li><a href="rpg.html">RPG</a></li>
+                <li><a href="puzzle.html">퍼즐</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">⚔️ 액션 게임</h1>
+            <p class="page-description">
+                아드레날린이 솟구치는 스릴 넘치는 액션 게임들! 
+                빠른 반응속도와 전략적 사고가 필요한 게임들을 모았습니다.
+            </p>
+        </div>
+
+        <div class="games-grid">
+            <!-- Cyberpunk 2077 -->
+            <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image cyberpunk">
+                        <span class="rating">★ 9.2/10</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                <div class="game-content">
+                    <h3 class="game-title">Cyberpunk 2077</h3>
+                    <p class="game-description">
+                        나이트 시티에서 펼쳐지는 사이버펑크 액션 RPG. 
+                        다양한 사이버웨어와 무기를 활용한 전투가 매력적입니다.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>오픈 월드 탐험</li>
+                            <li>다양한 전투 스타일</li>
+                            <li>사이버웨어 커스터마이징</li>
+                            <li>선택에 따른 스토리 분기</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>총격전과 해킹을 조합한 독특한 전투 시스템이 정말 재미있어요! 미래적인 세계관도 멋집니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hollow Knight -->
+            <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image hollow">
+                        <span class="rating">★ 9.5/10</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                <div class="game-content">
+                    <h3 class="game-title">Hollow Knight</h3>
+                    <p class="game-description">
+                        아름다운 2D 메트로배니아 액션 게임. 
+                        정교한 조작감과 도전적인 보스전이 인상적입니다.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>정밀한 플랫포밍</li>
+                            <li>도전적인 보스전</li>
+                            <li>광활한 지하 세계 탐험</li>
+                            <li>아름다운 손그림 아트</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>조작감이 정말 완벽하고 보스전의 패턴을 익히는 재미가 쏠쏠해요! 음악도 환상적입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOOM Eternal -->
+            <div class="game-card">
+                <div class="game-image doom">
+                    <span class="rating">★ 9.0/10</span>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">DOOM Eternal</h3>
+                    <p class="game-description">
+                        끊임없는 액션과 속도감이 압도적인 FPS 게임. 
+                        악마들을 상대로 한 무자비한 전투가 특징입니다.
+                    </p>
+                    <div class="game-features">
+                        <h4>🎮 게임 특징</h4>
+                        <ul class="features-list">
+                            <li>초고속 액션 게임플레이</li>
+                            <li>다양한 무기와 처형기</li>
+                            <li>수직적 맵 구조</li>
+                            <li>박진감 넘치는 사운드트랙</li>
+                        </ul>
+                    </div>
+                    <div class="game-reason">
+                        <h4>🌟 추천 이유</h4>
+                        <p>스트레스를 확실하게 풀 수 있는 게임! 빠른 속도감과 시원한 액션이 최고입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 내가 추천하는 게임 모음. 모든 권리 보유.</p>
+        <p>액션 게임으로 스릴 넘치는 시간을 보내세요! 🎮</p>
+    </footer>
+</body>
+</html>
