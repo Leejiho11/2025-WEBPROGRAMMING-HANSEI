@@ -34,10 +34,11 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
@@ -125,6 +126,9 @@
         .game-image.stardew { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%2366bb6a" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Stardew Valley</text></svg>'); }
         .game-image.hollow { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23424242" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Hollow Knight</text></svg>'); }
         .game-image.tetris { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%239c27b0" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Tetris Effect</text></svg>'); }
+        .game-image.lol { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%230ea5e9" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">League of Legends</text></svg>'); }
+        .game-image.pubg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f77f00" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">PUBG</text></svg>'); }
+        .game-image.maple { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23fbbf24" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">MapleStory</text></svg>'); }
 
         .genre-tag {
             position: absolute;
@@ -140,6 +144,9 @@
         .genre-rpg { background-color: #3498db; }
         .genre-puzzle { background-color: #9b59b6; }
         .genre-simulation { background-color: #2ecc71; }
+        .genre-fps { background-color: #ff6b35; }
+        .genre-mmorpg { background-color: #a855f7; }
+        .genre-moba { background-color: #14b8a6; }
 
         .game-content {
             padding: 25px;
@@ -186,6 +193,9 @@
                 <li><a href="action.html">액션</a></li>
                 <li><a href="rpg.html">RPG</a></li>
                 <li><a href="puzzle.html">퍼즐</a></li>
+                <li><a href="fps.html">FPS</a></li>
+                <li><a href="mmorpg.html">MMORPG</a></li>
+                <li><a href="moba.html">MOBA</a></li>
                 <li><a href="contact.html">연락처</a></li>
             </ul>
         </nav>
@@ -317,6 +327,66 @@
                         <div class="game-reason">
                             <h4>🌟 추천 이유</h4>
                             <p>단순한 테트리스가 아니라 정말 예술 작품 같아요! VR로 플레이하면 더욱 환상적인 경험을 할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 리그 오브 레전드 -->
+            <a href="https://www.leagueoflegends.com/ko-kr/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image lol">
+                        <span class="genre-tag genre-moba">MOBA</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">리그 오브 레전드</h3>
+                        <p class="game-description">
+                            5vs5 MOBA의 정석! 전략과 팀워크로 승리를 쟁취하는 한국 게임 문화의 중심입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>PC방 점유율 1위! 친구들과 함께 랭크 게임을 하는 재미가 끝내줍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 배틀그라운드 -->
+            <a href="https://store.steampowered.com/app/578080/PLAYERUNKNOWNS_BATTLEGROUNDS/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image pubg">
+                        <span class="genre-tag genre-fps">FPS</span>
+                        <span class="steam-tag">🎮 Steam</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">배틀그라운드</h3>
+                        <p class="game-description">
+                            배틀로얄의 원조! 100명이 한 섬에서 펼치는 생존 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>한국에서 가장 인기 있는 배틀로얄! 친구들과 스쿼드로 치킨 먹는 재미가 최고입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 메이플스토리 -->
+            <a href="https://maplestory.nexon.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image maple">
+                        <span class="genre-tag genre-mmorpg">MMORPG</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">메이플스토리</h3>
+                        <p class="game-description">
+                            20년이 넘도록 사랑받는 국민 2D 횡스크롤 MMORPG입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>추억의 BGM과 함께 친구들과 사냥하는 재미가 최고! 끊임없는 업데이트로 계속 재미있어요.</p>
                         </div>
                     </div>
                 </div>
