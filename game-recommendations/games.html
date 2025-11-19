@@ -204,6 +204,62 @@
             font-size: 60px;
             opacity: 0.3;
         }
+        
+        .game-image.fc-online { 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            position: relative;
+        }
+        .game-image.fc-online::after {
+            content: '⚽';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.dnf { 
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            position: relative;
+        }
+        .game-image.dnf::after {
+            content: '👊';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.overwatch { 
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            position: relative;
+        }
+        .game-image.overwatch::after {
+            content: '🎮';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.minecraft { 
+            background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+            position: relative;
+        }
+        .game-image.minecraft::after {
+            content: '⛏️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
 
         .genre-tag {
             position: absolute;
@@ -222,6 +278,8 @@
         .genre-fps { background-color: #ff6b35; }
         .genre-mmorpg { background-color: #a855f7; }
         .genre-moba { background-color: #14b8a6; }
+        .genre-sports { background-color: #10b981; }
+        .genre-sandbox { background-color: #84cc16; }
 
         .game-content {
             padding: 25px;
@@ -393,6 +451,86 @@
                         <div class="game-reason">
                             <h4>🌟 추천 이유</h4>
                             <p>스킬 이펙트가 정말 화려하고 레이드 공략하는 재미가 쏠쏠해요! 할 콘텐츠가 정말 많습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- FC 온라인 -->
+            <a href="https://fconline.nexon.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image fc-online">
+                        <span class="genre-tag genre-sports">SPORTS</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">FC 온라인</h3>
+                        <p class="game-description">
+                            FIFA 온라인의 정식 후속작! 실제 선수 데이터와 전술을 활용한 리얼 축구 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>축구를 좋아한다면 꼭! 실제 선수를 영입해서 내 팀을 만드는 재미가 끝내줍니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 던전앤파이터 -->
+            <a href="https://df.nexon.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image dnf">
+                        <span class="genre-tag genre-action">ACTION</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">던전앤파이터</h3>
+                        <p class="game-description">
+                            벨트스크롤 액션 RPG의 전설! 다양한 직업과 화려한 스킬이 특징인 국민 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>타격감 하나는 최고! 각 직업마다 다른 플레이 스타일로 질리지 않고 오래 즐길 수 있어요.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 오버워치 2 -->
+            <a href="https://overwatch.blizzard.com/ko-kr/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image overwatch">
+                        <span class="genre-tag genre-fps">FPS</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">오버워치 2</h3>
+                        <p class="game-description">
+                            영웅 기반 팀 슈팅 게임! 다양한 영웅들의 능력을 활용한 전략적 플레이가 핵심입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>무료로 전환되어 부담 없이 즐길 수 있고, 각 영웅마다 독특한 플레이가 가능해요!</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 마인크래프트 -->
+            <a href="https://www.minecraft.net/ko-kr" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image minecraft">
+                        <span class="genre-tag genre-sandbox">SANDBOX</span>
+                        <span class="steam-tag">🎮 멀티</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">마인크래프트</h3>
+                        <p class="game-description">
+                            세계에서 가장 많이 팔린 게임! 무한한 창의성으로 자신만의 세계를 만들 수 있는 샌드박스 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>친구들과 함께 서버를 만들어 건축하고 모험하는 재미가 무궁무진합니다!</p>
                         </div>
                     </div>
                 </div>
