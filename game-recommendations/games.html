@@ -120,15 +120,13 @@
             position: relative;
         }
 
-        .game-image.cyberpunk { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ff6b6b" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Cyberpunk 2077</text></svg>'); }
-        .game-image.witcher { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%234ecdc4" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">The Witcher 3</text></svg>'); }
-        .game-image.portal { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23ffa726" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Portal 2</text></svg>'); }
-        .game-image.stardew { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%2366bb6a" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Stardew Valley</text></svg>'); }
-        .game-image.hollow { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23424242" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Hollow Knight</text></svg>'); }
-        .game-image.tetris { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%239c27b0" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">Tetris Effect</text></svg>'); }
-        .game-image.lol { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%230ea5e9" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">League of Legends</text></svg>'); }
-        .game-image.pubg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f77f00" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">PUBG</text></svg>'); }
-        .game-image.maple { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23fbbf24" width="400" height="200"/><text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-family="Arial">MapleStory</text></svg>'); }
+        /* 게임 이미지는 images/ 폴더의 실제 이미지를 사용할 예정 */
+        .game-image.lol { background-image: url('images/games/lol.jpg'); }
+        .game-image.pubg { background-image: url('images/games/pubg.jpg'); }
+        .game-image.maple { background-image: url('images/games/maplestory.jpg'); }
+        .game-image.valorant { background-image: url('images/games/valorant.jpg'); }
+        .game-image.sudden-attack { background-image: url('images/games/sudden-attack.jpg'); }
+        .game-image.lostark { background-image: url('images/games/lostark.jpg'); }
 
         .genre-tag {
             position: absolute;
@@ -190,9 +188,6 @@
             <ul>
                 <li><a href="index.html">홈</a></li>
                 <li><a href="games.html" class="active">게임 목록</a></li>
-                <li><a href="action.html">액션</a></li>
-                <li><a href="rpg.html">RPG</a></li>
-                <li><a href="puzzle.html">퍼즐</a></li>
                 <li><a href="fps.html">FPS</a></li>
                 <li><a href="mmorpg.html">MMORPG</a></li>
                 <li><a href="moba.html">MOBA</a></li>
@@ -206,132 +201,6 @@
         <p style="text-align: center; color: #cccccc; margin-bottom: 40px;">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
 
         <div class="games-grid">
-            <!-- Cyberpunk 2077 -->
-            <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image cyberpunk">
-                        <span class="genre-tag genre-action">액션</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Cyberpunk 2077</h3>
-                        <p class="game-description">
-                            미래형 오픈 월드 RPG. 나이트 시티에서 펼쳐지는 사이버펑크 세계를 경험할 수 있습니다.
-                            키아누 리브스가 등장하는 스토리와 화려한 그래픽이 인상적입니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>몰입감 넘치는 스토리와 미래적 세계관이 정말 매력적이에요. 업데이트로 많이 개선되어서 지금이 플레이하기 좋은 시기입니다!</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- The Witcher 3 -->
-            <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image witcher">
-                        <span class="genre-tag genre-rpg">RPG</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">The Witcher 3: Wild Hunt</h3>
-                        <p class="game-description">
-                            판타지 세계의 걸작 RPG. 게롤트가 되어 광활한 세계를 모험하며 
-                            시리의 행방을 찾는 서사적인 이야기를 경험할 수 있습니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>RPG 중에서도 최고봉! 선택에 따른 다양한 결말과 풍부한 사이드 퀘스트로 수백 시간도 부족합니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Portal 2 -->
-            <a href="https://store.steampowered.com/app/620/Portal_2/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image portal">
-                        <span class="genre-tag genre-puzzle">퍼즐</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Portal 2</h3>
-                        <p class="game-description">
-                            창의적인 퍼즐 게임의 대표작. 포털 건을 이용해 퍼즐을 풀어나가며
-                            GLaDOS와의 흥미진진한 스토리를 즐길 수 있습니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>머리를 써야 하는 퍼즐이지만 절대 답답하지 않아요! 유머러스한 대사와 협동 모드까지 완벽합니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Stardew Valley -->
-            <a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image stardew">
-                        <span class="genre-tag genre-simulation">시뮬레이션</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Stardew Valley</h3>
-                        <p class="game-description">
-                            평화로운 농장 생활 시뮬레이션. 농사를 짓고, 동물을 키우며,
-                            마을 사람들과 관계를 쌓아가는 힐링 게임입니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>스트레스 해소에 최고! 픽셀 그래픽이 귀엽고 BGM도 너무 좋아요. 시간 가는 줄 모르게 됩니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Hollow Knight -->
-            <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image hollow">
-                        <span class="genre-tag genre-action">액션</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Hollow Knight</h3>
-                        <p class="game-description">
-                            아름다운 2D 메트로배니아 게임. 잊혀진 왕국을 탐험하며
-                            도전적인 보스전과 숨겨진 비밀들을 발견할 수 있습니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>손으로 그린 듯한 아트워크가 정말 아름답고, 적당한 난이도가 성취감을 줍니다. 음악도 환상적이에요!</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Tetris Effect -->
-            <a href="https://store.steampowered.com/app/1003590/Tetris_Effect_Connected/" target="_blank" class="game-link">
-                <div class="game-card">
-                    <div class="game-image tetris">
-                        <span class="genre-tag genre-puzzle">퍼즐</span>
-                        <span class="steam-tag">🎮 Steam</span>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Tetris Effect</h3>
-                        <p class="game-description">
-                            클래식 테트리스에 음악과 비주얼 효과를 더한 예술작품.
-                            명상적인 경험과 함께 테트리스의 새로운 매력을 느낄 수 있습니다.
-                        </p>
-                        <div class="game-reason">
-                            <h4>🌟 추천 이유</h4>
-                            <p>단순한 테트리스가 아니라 정말 예술 작품 같아요! VR로 플레이하면 더욱 환상적인 경험을 할 수 있습니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
             <!-- 리그 오브 레전드 -->
             <a href="https://www.leagueoflegends.com/ko-kr/" target="_blank" class="game-link">
                 <div class="game-card">
@@ -387,6 +256,66 @@
                         <div class="game-reason">
                             <h4>🌟 추천 이유</h4>
                             <p>추억의 BGM과 함께 친구들과 사냥하는 재미가 최고! 끊임없는 업데이트로 계속 재미있어요.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 발로란트 -->
+            <a href="https://playvalorant.com/ko-kr/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image valorant">
+                        <span class="genre-tag genre-fps">FPS</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">발로란트</h3>
+                        <p class="game-description">
+                            캐릭터 능력과 FPS가 결합된 전술 슈팅 게임! 각기 다른 능력을 가진 요원들의 전략적 플레이가 특징입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>캐릭터 능력과 정확한 조준이 만나는 신개념 FPS! 전략성이 뛰어나고 e스포츠로도 인기가 높아요.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 서든어택 -->
+            <a href="https://sa.nexon.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image sudden-attack">
+                        <span class="genre-tag genre-fps">FPS</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">서든어택</h3>
+                        <p class="game-description">
+                            한국 FPS의 전설! PC방 문화를 이끌어온 국민 슈팅 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>추억의 PC방 게임! 누구나 쉽게 즐길 수 있는 접근성과 빠른 플레이가 매력적입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 로스트아크 -->
+            <a href="https://lostark.game.onstove.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image lostark">
+                        <span class="genre-tag genre-mmorpg">MMORPG</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">로스트아크</h3>
+                        <p class="game-description">
+                            화려한 액션과 방대한 콘텐츠를 자랑하는 쿼터뷰 MMORPG! 다양한 레이드와 PVP 콘텐츠가 특징입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>스킬 이펙트가 정말 화려하고 레이드 공략하는 재미가 쏠쏠해요! 할 콘텐츠가 정말 많습니다.</p>
                         </div>
                     </div>
                 </div>

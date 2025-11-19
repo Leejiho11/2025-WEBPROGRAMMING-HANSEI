@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내가 추천하는 게임 모음</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-section {
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4a90e2, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4a90e2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #357abd;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li><a href="fps.html">FPS</a></li>
+                <li><a href="mmorpg.html">MMORPG</a></li>
+                <li><a href="moba.html">MOBA</a></li>
+                <li><a href="contact.html">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>내가 추천하는 게임 모음</h1>
+            <p>게임을 사랑하는 대학생이 직접 플레이하고 추천하는 최고의 게임들</p>
+            <p>장르별로 엄선된 게임들과 자세한 리뷰를 만나보세요!</p>
+            <a href="games.html" class="cta-button">게임 둘러보기</a>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>🎮 다양한 장르</h3>
+                <p>액션, RPG, 퍼즐 게임까지! 취향에 맞는 게임을 쉽게 찾아보세요.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📸 생생한 리뷰</h3>
+                <p>실제 스크린샷과 함께하는 솔직한 게임 리뷰와 추천 이유를 확인하세요.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏆 엄선된 추천</h3>
+                <p>직접 플레이하고 검증한 정말 재미있는 게임들만 골라 추천합니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 내가 추천하는 게임 모음. 모든 권리 보유.</p>
+        <p>게임을 사랑하는 대학생이 만든 추천 사이트입니다.</p>
+    </footer>
+</body>
+</html>
