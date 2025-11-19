@@ -237,8 +237,67 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    color: #666;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 게임별 썸네일 스타일 */
+.game-thumbnail.lol {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.game-thumbnail.pubg {
+    background: linear-gradient(135deg, #f77f00 0%, #d62828 100%);
+}
+
+.game-thumbnail.valorant {
+    background: linear-gradient(135deg, #ff4655 0%, #bd3944 100%);
+}
+
+.game-thumbnail.lostark {
+    background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+}
+
+.game-thumbnail.maplestory {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.game-thumbnail.fc-online {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.game-thumbnail.dnf {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.game-thumbnail.sudden-attack {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.game-thumbnail.overwatch {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.game-thumbnail.minecraft {
+    background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+}
+
+.game-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .game-details h4 {
@@ -394,14 +453,13 @@ footer p {
 .trend-game-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
-.trend-rank {
-    font-size: 18px;
-    font-weight: bold;
-    color: #667eea;
-    min-width: 30px;
+.trend-game-info .game-thumbnail {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
 }
 
 .trend-game-details h4 {
