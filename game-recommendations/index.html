@@ -66,9 +66,49 @@
                 </tbody>
             </table>
         </section>
+
+        <!-- 차트 섹션 -->
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3>📈 장르별 점유율</h3>
+                <div class="chart-container">
+                    <canvas id="genreChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>⏰ 시간대별 이용현황</h3>
+                <div class="chart-container">
+                    <canvas id="timeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 상승/하락 게임 섹션 -->
+        <section class="trend-section">
+            <div class="trend-container">
+                <div class="trend-card rising">
+                    <div class="trend-header">
+                        <h3>📈 급상승 게임</h3>
+                        <span class="trend-badge up">UP</span>
+                    </div>
+                    <div class="trend-list" id="risingGamesList">
+                        <!-- JavaScript로 동적 생성 -->
+                    </div>
+                </div>
+                <div class="trend-card falling">
+                    <div class="trend-header">
+                        <h3>📉 급하락 게임</h3>
+                        <span class="trend-badge down">DOWN</span>
+                    </div>
+                    <div class="trend-list" id="fallingGamesList">
+                        <!-- JavaScript로 동적 생성 -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
-        <p> 2025 한국 게임 통계. 모든 권리 보유.</p>
+        <p>© 2025 한국 게임 통계. 모든 권리 보유.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="js/dashboard.js"></script>

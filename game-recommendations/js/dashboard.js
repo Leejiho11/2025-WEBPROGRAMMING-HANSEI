@@ -9,16 +9,16 @@ function setCurrentDate() {
 
 // 게임 순위 데이터
 const rankingsData = [
-    { rank: 1, name: "리그 오브 레전드", genre: "MOBA", shareRate: "42.5%", playTime: "6,234,567", change: 0, changeType: "neutral" },
-    { rank: 2, name: "배틀그라운드", genre: "FPS", shareRate: "15.3%", playTime: "2,456,789", change: 1, changeType: "up" },
-    { rank: 3, name: "발로란트", genre: "FPS", shareRate: "12.8%", playTime: "1,987,654", change: -1, changeType: "down" },
-    { rank: 4, name: "로스트아크", genre: "MMORPG", shareRate: "10.2%", playTime: "1,678,901", change: 1, changeType: "up" },
-    { rank: 5, name: "메이플스토리", genre: "MMORPG", shareRate: "8.5%", playTime: "1,345,678", change: 2, changeType: "up" },
-    { rank: 6, name: "FC 온라인", genre: "SPORTS", shareRate: "5.2%", playTime: "789,012", change: 0, changeType: "neutral" },
-    { rank: 7, name: "던전앤파이터", genre: "ACTION", shareRate: "4.1%", playTime: "678,345", change: -2, changeType: "down" },
-    { rank: 8, name: "서든어택", genre: "FPS", shareRate: "3.2%", playTime: "567,890", change: 0, changeType: "neutral" },
-    { rank: 9, name: "오버워치 2", genre: "FPS", shareRate: "2.8%", playTime: "456,123", change: 1, changeType: "up" },
-    { rank: 10, name: "마인크래프트", genre: "SANDBOX", shareRate: "2.4%", playTime: "389,456", change: -1, changeType: "down" }
+    { rank: 1, name: "리그 오브 레전드", genre: "MOBA", shareRate: "42.5%", playTime: "6,234,567", change: 0, changeType: "neutral", changeRate: "0.0%" },
+    { rank: 2, name: "배틀그라운드", genre: "FPS", shareRate: "15.3%", playTime: "2,456,789", change: 1, changeType: "up", changeRate: "+15.6%" },
+    { rank: 3, name: "발로란트", genre: "FPS", shareRate: "12.8%", playTime: "1,987,654", change: -1, changeType: "down", changeRate: "-5.2%" },
+    { rank: 4, name: "로스트아크", genre: "MMORPG", shareRate: "10.2%", playTime: "1,678,901", change: 1, changeType: "up", changeRate: "+7.5%" },
+    { rank: 5, name: "메이플스토리", genre: "MMORPG", shareRate: "8.5%", playTime: "1,345,678", change: 2, changeType: "up", changeRate: "+295.5%" },
+    { rank: 6, name: "FC 온라인", genre: "SPORTS", shareRate: "5.2%", playTime: "789,012", change: 0, changeType: "neutral", changeRate: "+1.2%" },
+    { rank: 7, name: "던전앤파이터", genre: "ACTION", shareRate: "4.1%", playTime: "678,345", change: -2, changeType: "down", changeRate: "-12.3%" },
+    { rank: 8, name: "서든어택", genre: "FPS", shareRate: "3.2%", playTime: "567,890", change: 0, changeType: "neutral", changeRate: "-0.5%" },
+    { rank: 9, name: "오버워치 2", genre: "FPS", shareRate: "2.8%", playTime: "456,123", change: 1, changeType: "up", changeRate: "+8.2%" },
+    { rank: 10, name: "마인크래프트", genre: "SANDBOX", shareRate: "2.4%", playTime: "389,456", change: -1, changeType: "down", changeRate: "-3.8%" }
 ];
 
 let currentFilter = 'all';
@@ -142,10 +142,66 @@ function createTimeChart() {
     });
 }
 
+// 상승/하락 게임 렌더링
+function renderTrendGames() {
+    // 급상승 게임 (변동률 기준 상위 5개)
+    const risingGames = rankingsData
+        .filter(game => game.changeType === 'up')
+        .sort((a, b) => parseFloat(b.changeRate) - parseFloat(a.changeRate))
+        .slice(0, 5);
+    
+    // 급하락 게임 (변동률 기준 하위 5개)
+    const fallingGames = rankingsData
+        .filter(game => game.changeType === 'down')
+        .sort((a, b) => parseFloat(a.changeRate) - parseFloat(b.changeRate))
+        .slice(0, 5);
+    
+    // 상승 게임 렌더링
+    const risingList = document.getElementById('risingGamesList');
+    if (risingList) {
+        risingList.innerHTML = risingGames.map(game => `
+            <div class="trend-item">
+                <div class="trend-game-info">
+                    <span class="trend-rank">${game.rank}</span>
+                    <div class="trend-game-details">
+                        <h4>${game.name}</h4>
+                        <span class="game-genre">${game.genre}</span>
+                    </div>
+                </div>
+                <div class="trend-change">
+                    <span class="trend-change-value up">▲ ${game.change}</span>
+                    <span class="trend-change-rate">${game.changeRate}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // 하락 게임 렌더링
+    const fallingList = document.getElementById('fallingGamesList');
+    if (fallingList) {
+        fallingList.innerHTML = fallingGames.map(game => `
+            <div class="trend-item">
+                <div class="trend-game-info">
+                    <span class="trend-rank">${game.rank}</span>
+                    <div class="trend-game-details">
+                        <h4>${game.name}</h4>
+                        <span class="game-genre">${game.genre}</span>
+                    </div>
+                </div>
+                <div class="trend-change">
+                    <span class="trend-change-value down">▼ ${Math.abs(game.change)}</span>
+                    <span class="trend-change-rate">${game.changeRate}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
 // 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', function() {
     setCurrentDate();
     renderRankings();
+    renderTrendGames();
     
     // 차트가 있는 페이지에서만 실행
     if (typeof Chart !== 'undefined') {

@@ -120,13 +120,90 @@
             position: relative;
         }
 
-        /* 게임 이미지는 images/ 폴더의 실제 이미지를 사용할 예정 */
-        .game-image.lol { background-image: url('images/games/lol.jpg'); }
-        .game-image.pubg { background-image: url('images/games/pubg.jpg'); }
-        .game-image.maple { background-image: url('images/games/maplestory.jpg'); }
-        .game-image.valorant { background-image: url('images/games/valorant.jpg'); }
-        .game-image.sudden-attack { background-image: url('images/games/sudden-attack.jpg'); }
-        .game-image.lostark { background-image: url('images/games/lostark.jpg'); }
+        /* 게임 이미지 - 그라데이션 placeholder */
+        .game-image.lol { 
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            position: relative;
+        }
+        .game-image.lol::after {
+            content: '🎮';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.pubg { 
+            background: linear-gradient(135deg, #f77f00 0%, #d62828 100%);
+            position: relative;
+        }
+        .game-image.pubg::after {
+            content: '🎯';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.maple { 
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            position: relative;
+        }
+        .game-image.maple::after {
+            content: '🍁';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.valorant { 
+            background: linear-gradient(135deg, #ff4655 0%, #bd3944 100%);
+            position: relative;
+        }
+        .game-image.valorant::after {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.sudden-attack { 
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            position: relative;
+        }
+        .game-image.sudden-attack::after {
+            content: '🔫';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+        
+        .game-image.lostark { 
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            position: relative;
+        }
+        .game-image.lostark::after {
+            content: '⚔️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
 
         .genre-tag {
             position: absolute;
