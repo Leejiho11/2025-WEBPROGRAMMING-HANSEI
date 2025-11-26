@@ -611,6 +611,79 @@
             padding: 20px;
             margin-top: 50px;
         }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .search-box input {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+
+            .game-title {
+                font-size: 20px;
+            }
+
+            .game-description {
+                font-size: 14px;
+            }
+
+            .theme-toggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                background-color: #4a90e2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 24px;
+            }
+
+            .game-content {
+                padding: 20px;
+            }
+
+            .filter-buttons {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 10px;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -630,7 +703,8 @@
 
     <main>
         <h1 class="page-title">추천 게임 모음</h1>
-        <p style="text-align: center; color: #cccccc; margin-bottom: 20px;">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
+        <p style="text-align: center; color: #cccccc; margin-bottom: 10px;">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
+        <p style="text-align: center; color: #4a90e2; font-weight: bold; margin-bottom: 20px;" id="gameCount">총 20개의 게임</p>
 
         <!-- 검색 및 필터 섹션 -->
         <div class="search-filter-section">
@@ -1143,6 +1217,8 @@
 
         // 게임 필터링 함수
         function filterGames(searchTerm, genre) {
+            let visibleCount = 0;
+            
             gameCards.forEach(card => {
                 const gameLink = card.closest('.game-link');
                 const gameName = card.querySelector('.game-title').textContent;
@@ -1161,10 +1237,23 @@
                 if (matchesSearch && matchesGenre) {
                     gameLink.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s';
+                    visibleCount++;
                 } else {
                     gameLink.style.display = 'none';
                 }
             });
+            
+            // 게임 개수 업데이트
+            const gameCountElement = document.getElementById('gameCount');
+            if (genre === 'favorites') {
+                gameCountElement.textContent = `즐겨찾기 ${visibleCount}개`;
+            } else if (searchTerm) {
+                gameCountElement.textContent = `검색 결과 ${visibleCount}개`;
+            } else if (genre !== 'all') {
+                gameCountElement.textContent = `${genre} 장르 ${visibleCount}개`;
+            } else {
+                gameCountElement.textContent = `총 ${visibleCount}개의 게임`;
+            }
         }
 
         // 애니메이션 CSS 추가
