@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게임 목록 - 내가 추천하는 게임 모음</title>
+    <link rel="stylesheet" href="css/reviews.css">
     <style>
         * {
             margin: 0;
@@ -763,19 +764,56 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="🔍 게임 이름을 검색하세요..." />
             </div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-genre="all">전체</button>
-                <button class="filter-btn" data-genre="favorites" style="background: linear-gradient(135deg, #ec4899, #db2777); border: none;">❤️ 즐겨찾기</button>
-                <button class="filter-btn" data-genre="MOBA">MOBA</button>
-                <button class="filter-btn" data-genre="FPS">FPS</button>
-                <button class="filter-btn" data-genre="MMORPG">MMORPG</button>
-                <button class="filter-btn" data-genre="ACTION">액션</button>
-                <button class="filter-btn" data-genre="SPORTS">스포츠</button>
-                <button class="filter-btn" data-genre="RACING">레이싱</button>
-                <button class="filter-btn" data-genre="RTS">RTS</button>
-                <button class="filter-btn" data-genre="전략">전략</button>
-                <button class="filter-btn" data-genre="RPG">RPG</button>
-                <button class="filter-btn" data-genre="모바일">모바일</button>
+            
+            <!-- 장르 필터 -->
+            <div style="margin-bottom: 15px;">
+                <h3 style="color: #4a90e2; margin-bottom: 10px; font-size: 18px;">🎮 장르</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-genre="all">전체</button>
+                    <button class="filter-btn" data-genre="favorites" style="background: linear-gradient(135deg, #ec4899, #db2777); border: none;">❤️ 즐겨찾기</button>
+                    <button class="filter-btn" data-genre="MOBA">MOBA</button>
+                    <button class="filter-btn" data-genre="FPS">FPS</button>
+                    <button class="filter-btn" data-genre="MMORPG">MMORPG</button>
+                    <button class="filter-btn" data-genre="ACTION">액션</button>
+                    <button class="filter-btn" data-genre="SPORTS">스포츠</button>
+                    <button class="filter-btn" data-genre="RACING">레이싱</button>
+                    <button class="filter-btn" data-genre="RTS">RTS</button>
+                    <button class="filter-btn" data-genre="전략">전략</button>
+                    <button class="filter-btn" data-genre="RPG">RPG</button>
+                    <button class="filter-btn" data-genre="모바일">모바일</button>
+                </div>
+            </div>
+
+            <!-- 플랫폼 필터 -->
+            <div style="margin-bottom: 15px;">
+                <h3 style="color: #4a90e2; margin-bottom: 10px; font-size: 18px;">💻 플랫폼</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-platform="all">전체</button>
+                    <button class="filter-btn" data-platform="PC">PC</button>
+                    <button class="filter-btn" data-platform="모바일">모바일</button>
+                    <button class="filter-btn" data-platform="콘솔">콘솔</button>
+                </div>
+            </div>
+
+            <!-- 가격 필터 -->
+            <div style="margin-bottom: 15px;">
+                <h3 style="color: #4a90e2; margin-bottom: 10px; font-size: 18px;">💰 가격</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-price="all">전체</button>
+                    <button class="filter-btn" data-price="무료">무료</button>
+                    <button class="filter-btn" data-price="유료">유료</button>
+                </div>
+            </div>
+
+            <!-- 정렬 옵션 -->
+            <div style="margin-bottom: 15px;">
+                <h3 style="color: #4a90e2; margin-bottom: 10px; font-size: 18px;">⭐ 정렬</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-sort="default">기본</button>
+                    <button class="filter-btn" data-sort="rating">평점 높은순</button>
+                    <button class="filter-btn" data-sort="name">이름순</button>
+                    <button class="filter-btn" data-sort="recent">최신순</button>
+                </div>
             </div>
         </div>
 
@@ -1254,59 +1292,144 @@
             filterGames(searchTerm, currentFilter);
         });
 
-        // 필터 버튼 기능
-        filterButtons.forEach(button => {
+        // 필터 상태 관리
+        let currentFilters = {
+            genre: 'all',
+            platform: 'all',
+            price: 'all',
+            sort: 'default'
+        };
+
+        // 필터 버튼 기능 - 장르
+        document.querySelectorAll('[data-genre]').forEach(button => {
             button.addEventListener('click', function() {
-                // 활성화 상태 변경
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('[data-genre]').forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-                
-                currentFilter = this.dataset.genre;
-                const searchTerm = searchInput.value.toLowerCase();
-                filterGames(searchTerm, currentFilter);
+                currentFilters.genre = this.dataset.genre;
+                applyFilters();
             });
         });
 
-        // 게임 필터링 함수
-        function filterGames(searchTerm, genre) {
-            let visibleCount = 0;
+        // 필터 버튼 기능 - 플랫폼
+        document.querySelectorAll('[data-platform]').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('[data-platform]').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentFilters.platform = this.dataset.platform;
+                applyFilters();
+            });
+        });
+
+        // 필터 버튼 기능 - 가격
+        document.querySelectorAll('[data-price]').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('[data-price]').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentFilters.price = this.dataset.price;
+                applyFilters();
+            });
+        });
+
+        // 정렬 버튼 기능
+        document.querySelectorAll('[data-sort]').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('[data-sort]').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentFilters.sort = this.dataset.sort;
+                applyFilters();
+            });
+        });
+
+        // 통합 필터링 함수
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCards = [];
             
             gameCards.forEach(card => {
                 const gameLink = card.closest('.game-link');
                 const gameName = card.querySelector('.game-title').textContent;
                 const gameNameLower = gameName.toLowerCase();
                 const gameGenre = card.querySelector('.genre-tag').textContent;
+                const gamePlatform = card.querySelector('.steam-tag') ? card.querySelector('.steam-tag').textContent : '';
+                const gameDescription = card.querySelector('.game-description').textContent;
                 
+                // 검색어 매칭
                 const matchesSearch = gameNameLower.includes(searchTerm);
-                let matchesGenre = true;
                 
-                if (genre === 'favorites') {
+                // 장르 매칭
+                let matchesGenre = true;
+                if (currentFilters.genre === 'favorites') {
                     matchesGenre = favorites.includes(gameName);
-                } else if (genre !== 'all') {
-                    matchesGenre = gameGenre === genre;
+                } else if (currentFilters.genre !== 'all') {
+                    matchesGenre = gameGenre === currentFilters.genre;
                 }
                 
-                if (matchesSearch && matchesGenre) {
+                // 플랫폼 매칭
+                let matchesPlatform = true;
+                if (currentFilters.platform !== 'all') {
+                    matchesPlatform = gamePlatform.includes(currentFilters.platform);
+                }
+                
+                // 가격 매칭
+                let matchesPrice = true;
+                if (currentFilters.price !== 'all') {
+                    const isFree = gameDescription.includes('무료') || gameName.includes('무료');
+                    if (currentFilters.price === '무료') {
+                        matchesPrice = isFree;
+                    } else {
+                        matchesPrice = !isFree;
+                    }
+                }
+                
+                // 모든 조건 만족 여부
+                if (matchesSearch && matchesGenre && matchesPlatform && matchesPrice) {
                     gameLink.style.display = 'block';
                     card.style.animation = 'fadeIn 0.5s';
-                    visibleCount++;
+                    visibleCards.push({ card, gameLink, gameName });
                 } else {
                     gameLink.style.display = 'none';
                 }
             });
             
+            // 정렬 적용
+            if (currentFilters.sort !== 'default' && visibleCards.length > 0) {
+                const gamesGrid = document.getElementById('gamesGrid');
+                
+                visibleCards.sort((a, b) => {
+                    if (currentFilters.sort === 'name') {
+                        return a.gameName.localeCompare(b.gameName);
+                    } else if (currentFilters.sort === 'rating') {
+                        // 평점 정보가 있다면 그에 따라 정렬 (현재는 이름순과 동일)
+                        return a.gameName.localeCompare(b.gameName);
+                    } else if (currentFilters.sort === 'recent') {
+                        // 최신순 정렬 (현재는 역순)
+                        return b.gameName.localeCompare(a.gameName);
+                    }
+                    return 0;
+                });
+                
+                visibleCards.forEach(item => {
+                    gamesGrid.appendChild(item.gameLink);
+                });
+            }
+            
             // 게임 개수 업데이트
             const gameCountElement = document.getElementById('gameCount');
-            if (genre === 'favorites') {
-                gameCountElement.textContent = `즐겨찾기 ${visibleCount}개`;
+            const visibleCount = visibleCards.length;
+            
+            if (currentFilters.genre === 'favorites') {
+                gameCountElement.textContent = `❤️ 즐겨찾기 ${visibleCount}개`;
             } else if (searchTerm) {
-                gameCountElement.textContent = `검색 결과 ${visibleCount}개`;
-            } else if (genre !== 'all') {
-                gameCountElement.textContent = `${genre} 장르 ${visibleCount}개`;
+                gameCountElement.textContent = `🔍 검색 결과 ${visibleCount}개`;
+            } else if (currentFilters.genre !== 'all' || currentFilters.platform !== 'all' || currentFilters.price !== 'all') {
+                gameCountElement.textContent = `필터 결과 ${visibleCount}개`;
             } else {
                 gameCountElement.textContent = `총 ${visibleCount}개의 게임`;
             }
         }
+
+        // 검색 입력시 필터 재적용
+        searchInput.addEventListener('input', applyFilters);
 
         // 애니메이션 CSS 추가
         const style = document.createElement('style');
@@ -1323,6 +1446,19 @@
             }
         `;
         document.head.appendChild(style);
+    </script>
+    
+    <!-- 리뷰 시스템 -->
+    <script src="js/reviews.js"></script>
+    <script>
+        // 모든 게임 카드에 리뷰 버튼 추가
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                const gameName = card.querySelector('.game-title').textContent;
+                reviewUI.addReviewButtonToCard(card, gameName);
+            });
+        });
     </script>
 </body>
 </html>
