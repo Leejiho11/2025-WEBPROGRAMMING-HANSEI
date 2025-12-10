@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전략 게임 추천 - Korean Game Recommendation</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Genre Hero Section */
+        .genre-hero {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .genre-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .genre-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Genre Info Section */
+        .genre-info {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .genre-info h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .genre-info p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .genre-hero h1 {
+                font-size: 2rem;
+            }
+
+            .genre-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .coming-soon h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🎮 Korean Games</a>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">장르별 게임 ▼</a>
+                    <div class="dropdown-content">
+                        <a href="fps.html">FPS</a>
+                        <a href="mmorpg.html">MMORPG</a>
+                        <a href="moba.html">MOBA</a>
+                        <a href="action.html">액션</a>
+                        <a href="sports.html">스포츠</a>
+                        <a href="racing.html">레이싱</a>
+                        <a href="rts.html">RTS</a>
+                        <a href="strategy.html" class="active">전략</a>
+                        <a href="rpg.html">RPG</a>
+                        <a href="mobile.html">모바일</a>
+                    </div>
+                </li>
+                <li><a href="wizard.html">추천 마법사</a></li>
+                <li><a href="contact.html">연락처</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="genre-hero">
+        <h1>🎲 전략 게임</h1>
+        <p>깊은 사고와 계획이 필요한 전략 게임의 세계! 당신의 전략으로 승리를 만들어보세요.</p>
+    </section>
+
+    <main>
+        <div class="genre-info">
+            <h2>전략 장르란?</h2>
+            <p>
+                전략 게임은 플레이어가 신중한 계획과 의사결정을 통해 목표를 달성하는 게임 장르입니다. 
+                턴제 전략(TBS), 실시간 전략(RTS), 4X 전략(탐험, 확장, 개발, 정복) 등 다양한 하위 장르가 있으며, 
+                각각 고유한 재미를 제공합니다. 한국에서는 특히 모바일 전략 게임과 
+                삼국지, 대항해시대와 같은 역사 전략 게임이 큰 인기를 끌고 있습니다.
+            </p>
+        </div>
+
+        <div class="coming-soon">
+            <h2>🚧 곧 만나보실 수 있습니다</h2>
+            <p>한국의 우수한 전략 게임을 준비 중입니다.<br>조금만 기다려 주세요!</p>
+        </div>
+
+        <div class="genre-info">
+            <h2>전략 게임의 매력</h2>
+            <p>
+                <strong>🧩 깊은 전략성:</strong> 복잡한 시스템과 다양한 선택지로 깊이 있는 플레이<br>
+                <strong>📈 장기적 계획:</strong> 단기 목표와 장기 비전을 동시에 고려<br>
+                <strong>⚖️ 의사결정:</strong> 매 순간 중요한 선택을 내려야 하는 긴장감<br>
+                <strong>🎯 목표 달성:</strong> 복잡한 문제를 해결했을 때의 성취감<br>
+                <strong>🌍 세계 구축:</strong> 자신만의 제국이나 왕국을 건설하는 재미<br>
+                <strong>♟️ 체스 같은 깊이:</strong> 마스터하기는 어렵지만 그만큼 보람 있음
+            </p>
+        </div>
+
+        <div class="genre-info">
+            <h2>전략 게임 초보자 팁</h2>
+            <p>
+                <strong>1. 튜토리얼 필수:</strong> 전략 게임은 복잡하므로 튜토리얼을 꼭 플레이하세요.<br>
+                <strong>2. 쉬운 난이도부터:</strong> 처음에는 낮은 난이도로 시작하여 시스템을 익히세요.<br>
+                <strong>3. 경제 우선:</strong> 대부분의 전략 게임에서 안정적인 경제가 승리의 기반입니다.<br>
+                <strong>4. 한 전략 집중:</strong> 여러 전략을 시도하기보다 하나를 완벽히 익히세요.<br>
+                <strong>5. 공략 참고:</strong> 커뮤니티의 공략과 팁을 참고하면 빠르게 성장할 수 있습니다.<br>
+                <strong>6. 실패로부터 배우기:</strong> 패배를 분석하고 다음 게임에서 개선하세요.<br>
+                <strong>7. 여유 있게:</strong> 전략 게임은 시간이 걸리므로 조급해하지 마세요.
+            </p>
+        </div>
+
+        <div class="genre-info">
+            <h2>전략 게임의 종류</h2>
+            <p>
+                <strong>턴제 전략(TBS):</strong> 각 플레이어가 차례대로 행동하는 방식으로, 신중한 계획이 가능합니다. 
+                (예: 문명 시리즈, XCOM 시리즈)<br><br>
+                
+                <strong>실시간 전략(RTS):</strong> 모든 플레이어가 동시에 행동하며, 빠른 판단력이 요구됩니다. 
+                (예: 스타크래프트, 에이지 오브 엠파이어)<br><br>
+                
+                <strong>4X 전략:</strong> 탐험(eXplore), 확장(eXpand), 개발(eXploit), 정복(eXterminate)의 4가지 요소에 중점을 둡니다. 
+                (예: 문명 시리즈, Stellaris)<br><br>
+                
+                <strong>타워 디펜스:</strong> 적의 공격을 방어하기 위해 방어 구조물을 전략적으로 배치합니다. 
+                (예: 킹덤 러시, Bloons TD)<br><br>
+                
+                <strong>대전략:</strong> 국가 단위의 거시적 전략을 다루며, 외교, 경제, 군사를 모두 관리합니다. 
+                (예: Hearts of Iron, Europa Universalis)
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Korean Game Recommendation. All rights reserved.</p>
+        <p>한국의 우수한 게임을 세계에 알립니다.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        // 테마 시스템 초기화
+        const themeManager = new ThemeManager();
+    </script>
+</body>
+</html>

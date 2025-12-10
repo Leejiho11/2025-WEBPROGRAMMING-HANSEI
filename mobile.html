@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 게임 추천 - Korean Game Recommendation</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Genre Hero Section */
+        .genre-hero {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .genre-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .genre-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Genre Info Section */
+        .genre-info {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .genre-info h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .genre-info p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .genre-hero h1 {
+                font-size: 2rem;
+            }
+
+            .genre-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .coming-soon h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .mobile-icons {
+            font-size: 3rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🎮 Korean Games</a>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="games.html">게임 목록</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">장르별 게임 ▼</a>
+                    <div class="dropdown-content">
+                        <a href="fps.html">FPS</a>
+                        <a href="mmorpg.html">MMORPG</a>
+                        <a href="moba.html">MOBA</a>
+                        <a href="action.html">액션</a>
+                        <a href="sports.html">스포츠</a>
+                        <a href="racing.html">레이싱</a>
+                        <a href="rts.html">RTS</a>
+                        <a href="strategy.html">전략</a>
+                        <a href="rpg.html">RPG</a>
+                        <a href="mobile.html" class="active">모바일</a>
+                    </div>
+                </li>
+                <li><a href="wizard.html">추천 마법사</a></li>
+                <li><a href="contact.html">연락처</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="genre-hero">
+        <h1>📱 모바일 게임</h1>
+        <p>언제 어디서나 즐기는 게임의 즐거움! 한국의 뛰어난 모바일 게임들을 만나보세요.</p>
+    </section>
+
+    <main>
+        <div class="genre-info">
+            <h2>모바일 게임이란?</h2>
+            <p>
+                모바일 게임은 스마트폰이나 태블릿에서 플레이할 수 있는 게임을 말합니다. 
+                한국은 세계적인 모바일 게임 강국으로, 리니지M, 검은사막 모바일, 
+                쿠키런 킹덤 등 다양한 히트작을 배출했습니다. 
+                터치 인터페이스에 최적화된 조작과 짧은 플레이 시간으로 
+                언제 어디서나 쉽게 즐길 수 있는 것이 특징입니다. 
+                RPG, 퍼즐, 전략, 캐주얼 등 모든 장르가 모바일로 구현되고 있습니다.
+            </p>
+        </div>
+
+        <div class="coming-soon">
+            <div class="mobile-icons">📱 📲 🎮</div>
+            <h2>🚧 곧 만나보실 수 있습니다</h2>
+            <p>한국의 우수한 모바일 게임을 준비 중입니다.<br>조금만 기다려 주세요!</p>
+        </div>
+
+        <div class="genre-info">
+            <h2>모바일 게임의 매력</h2>
+            <p>
+                <strong>📱 접근성:</strong> 스마트폰만 있으면 언제 어디서나 플레이 가능<br>
+                <strong>⏱️ 짧은 플레이:</strong> 짧은 시간에도 의미 있는 플레이 가능<br>
+                <strong>🎮 간편한 조작:</strong> 터치 인터페이스로 누구나 쉽게 접근<br>
+                <strong>🔄 지속적 업데이트:</strong> 정기적인 콘텐츠 업데이트와 이벤트<br>
+                <strong>💰 다양한 가격:</strong> 무료부터 유료까지 선택의 폭이 넓음<br>
+                <strong>👥 소셜 연동:</strong> 친구들과 쉽게 연결되고 경쟁 가능<br>
+                <strong>☁️ 클라우드 동기화:</strong> 기기를 바꿔도 진행 상황 유지
+            </p>
+        </div>
+
+        <div class="genre-info">
+            <h2>모바일 게임 초보자 팁</h2>
+            <p>
+                <strong>1. 배터리 관리:</strong> 게임이 배터리를 많이 소모하므로 충전기를 준비하세요.<br>
+                <strong>2. 데이터 사용 주의:</strong> Wi-Fi가 없는 곳에서는 데이터 사용량에 주의하세요.<br>
+                <strong>3. 자동 플레이 활용:</strong> 반복적인 작업은 자동 플레이 기능을 활용하세요.<br>
+                <strong>4. 일일 보상 챙기기:</strong> 매일 로그인 보상과 일일 퀘스트를 빠짐없이 받으세요.<br>
+                <strong>5. 이벤트 활용:</strong> 정기적인 이벤트를 통해 무료 아이템을 획득하세요.<br>
+                <strong>6. 과금 신중히:</strong> 충동적인 결제보다는 계획적으로 과금하세요.<br>
+                <strong>7. 푸시 알림 관리:</strong> 게임 알림이 너무 많다면 설정에서 조절하세요.<br>
+                <strong>8. 계정 연동:</strong> 게임 계정을 SNS나 이메일에 연동하여 데이터를 보호하세요.
+            </p>
+        </div>
+
+        <div class="genre-info">
+            <h2>한국 모바일 게임의 특징</h2>
+            <p>
+                한국 모바일 게임 산업은 세계적으로 인정받는 수준입니다. 
+                특히 <strong>높은 퀄리티의 그래픽</strong>과 <strong>깊이 있는 게임성</strong>으로 유명하며, 
+                PC 게임 못지않은 완성도를 자랑합니다.<br><br>
+                
+                한국 게임사들은 <strong>글로벌 시장</strong>을 염두에 두고 개발하여, 
+                다국어 지원과 해외 서버 운영에 노력을 기울입니다. 
+                또한 <strong>지속적인 콘텐츠 업데이트</strong>와 <strong>커뮤니티 운영</strong>으로 
+                플레이어들과 소통하며 게임을 발전시킵니다.<br><br>
+                
+                <strong>대표적인 한국 모바일 게임들:</strong><br>
+                • 리니지M - MMORPG의 명가, 리니지의 모바일 버전<br>
+                • 검은사막 모바일 - PC 인기작의 성공적인 모바일 이식<br>
+                • 쿠키런 킹덤 - 귀여운 캐릭터와 중독성 있는 게임성<br>
+                • 배틀그라운드 모바일 - 배틀로얄 장르의 선두주자<br>
+                • 세븐나이츠 - 턴제 RPG의 명작<br>
+                • 서머너즈 워 - 전 세계적인 인기 수집형 RPG
+            </p>
+        </div>
+
+        <div class="genre-info">
+            <h2>모바일 게임 장르별 추천</h2>
+            <p>
+                <strong>캐주얼 게임:</strong> 짧은 시간에 즐기기 좋은 가벼운 게임들. 
+                출퇴근 시간이나 대기 시간에 적합합니다.<br><br>
+                
+                <strong>RPG:</strong> 깊이 있는 스토리와 캐릭터 육성을 즐길 수 있는 게임들. 
+                장시간 플레이에 적합합니다.<br><br>
+                
+                <strong>전략 게임:</strong> 머리를 쓰며 즐기는 전략 게임들. 
+                신중한 계획과 의사결정이 필요합니다.<br><br>
+                
+                <strong>배틀로얄:</strong> 실시간으로 다른 플레이어들과 경쟁하는 게임들. 
+                긴장감 넘치는 플레이를 원하는 분들께 추천합니다.<br><br>
+                
+                <strong>퍼즐:</strong> 논리적 사고와 문제 해결 능력을 필요로 하는 게임들. 
+                스트레스 없이 즐기기 좋습니다.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Korean Game Recommendation. All rights reserved.</p>
+        <p>한국의 우수한 게임을 세계에 알립니다.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        // 테마 시스템 초기화
+        const themeManager = new ThemeManager();
+    </script>
+</body>
+</html>
