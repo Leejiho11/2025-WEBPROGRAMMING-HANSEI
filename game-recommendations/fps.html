@@ -1,7 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+<hea        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+        }
+
+        .active {
+            color: #4a90e2 !important;
+            font-weight: bold;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2c2c2c;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4a90e2;
+            color: #ffffff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }et="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPS 게임 - 내가 추천하는 게임 모음</title>
     <style>
@@ -214,9 +270,22 @@
             <ul>
                 <li><a href="index.html">홈</a></li>
                 <li><a href="games.html">게임 목록</a></li>
-                <li><a href="fps.html" class="active">FPS</a></li>
-                <li><a href="mmorpg.html">MMORPG</a></li>
-                <li><a href="moba.html">MOBA</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">장르별 게임 ▼</a>
+                    <div class="dropdown-content">
+                        <a href="fps.html" class="active">FPS</a>
+                        <a href="mmorpg.html">MMORPG</a>
+                        <a href="moba.html">MOBA</a>
+                        <a href="action.html">액션</a>
+                        <a href="sports.html">스포츠</a>
+                        <a href="racing.html">레이싱</a>
+                        <a href="rts.html">RTS</a>
+                        <a href="strategy.html">전략</a>
+                        <a href="rpg.html">RPG</a>
+                        <a href="mobile.html">모바일</a>
+                    </div>
+                </li>
+                <li><a href="wizard.html">추천 마법사</a></li>
                 <li><a href="contact.html">연락처</a></li>
             </ul>
         </nav>
