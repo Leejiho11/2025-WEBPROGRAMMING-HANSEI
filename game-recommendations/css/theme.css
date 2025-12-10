@@ -1,0 +1,375 @@
+/* 공통 테마 CSS - 모든 페이지에 적용 */
+
+/* 다크 모드 (기본) */
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2c2c2c;
+    --bg-card: #2c2c2c;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #888888;
+    --border-color: #4a90e2;
+    --accent-primary: #4a90e2;
+    --accent-secondary: #7b68ee;
+    --hover-bg: #3a3a3a;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+}
+
+/* 라이트 모드 */
+body.light-mode {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #444444;
+    --text-tertiary: #666666;
+    --border-color: #4a90e2;
+    --accent-primary: #4a90e2;
+    --accent-secondary: #7b68ee;
+    --hover-bg: #f0f0f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+}
+
+/* 전역 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', 'Noto Sans KR', Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* 헤더 및 네비게이션 */
+header {
+    background-color: var(--bg-secondary);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: var(--hover-bg);
+    color: var(--accent-primary);
+}
+
+.nav-links li a.active {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px 0;
+    min-width: 200px;
+    box-shadow: 0 5px 20px var(--shadow);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--hover-bg);
+    color: var(--accent-primary);
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle {
+    background: var(--accent-primary);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+/* 푸터 */
+footer {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.btn-secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-bg);
+}
+
+/* 카드 공통 스타일 */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* 입력 필드 공통 스타일 */
+input, textarea, select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        border: none;
+        box-shadow: none;
+        padding-left: 20px;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .theme-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        box-shadow: 0 5px 20px var(--shadow);
+    }
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* 로딩 스피너 */
+.loader {
+    border: 4px solid var(--bg-secondary);
+    border-top: 4px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 토스트 알림 */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 15px 25px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-primary);
+    box-shadow: 0 5px 20px var(--shadow);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast.success {
+    border-left-color: #10b981;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+
+.toast.warning {
+    border-left-color: #f59e0b;
+}
