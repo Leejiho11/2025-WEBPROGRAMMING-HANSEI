@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연락처 - 내가 추천하는 게임 모음</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // 여기에 본인의 EmailJS Public Key 입력
+        })();
+    </script>
     <style>
         * {
             margin: 0;
@@ -213,13 +221,27 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">홈</a></li>
-                <li><a href="games.html">게임 목록</a></li>
-                <li><a href="fps.html">FPS</a></li>
-                <li><a href="mmorpg.html">MMORPG</a></li>
-                <li><a href="moba.html">MOBA</a></li>
-                <li><a href="contact.html" class="active">연락처</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">🏠 홈</a></li>
+                <li><a href="games.html">🎮 게임 목록</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">📂 장르별 보기 ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fps.html">🎯 FPS</a></li>
+                        <li><a href="mmorpg.html">⚔️ MMORPG</a></li>
+                        <li><a href="moba.html">🏆 MOBA</a></li>
+                        <li><a href="action.html">👊 액션</a></li>
+                        <li><a href="sports.html">⚽ 스포츠</a></li>
+                        <li><a href="racing.html">🏎️ 레이싱</a></li>
+                        <li><a href="rts.html">🚀 RTS</a></li>
+                        <li><a href="strategy.html">♟️ 전략</a></li>
+                        <li><a href="rpg.html">🗡️ RPG</a></li>
+                        <li><a href="mobile.html">📱 모바일</a></li>
+                    </ul>
+                </li>
+                <li><a href="wizard.html">✨ 추천 마법사</a></li>
+                <li><a href="contact.html" class="active">📧 연락처</a></li>
+                <li><button id="themeToggle" class="theme-toggle">🌙</button></li>
             </ul>
         </nav>
     </header>
@@ -234,19 +256,20 @@
         </div>
 
         <div class="contact-container">
-            <form class="contact-form" action="#" method="post">
-                <div class="form-note">
-                    <p>📝 현재는 데모 페이지로, 실제로는 전송되지 않습니다. 실제 구현 시에는 서버 처리가 필요합니다.</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-note" id="formNote">
+                    <p>� EmailJS를 통해 실제로 이메일이 전송됩니다!</p>
+                    <p style="font-size: 12px; margin-top: 5px;">💡 EmailJS 설정 방법은 README를 참조하세요.</p>
                 </div>
 
                 <div class="form-group">
                     <label for="name">이름 *</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="from_name" placeholder="홍길동" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">이메일 *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="reply_to" placeholder="example@email.com" required>
                 </div>
 
                 <div class="form-group">
@@ -261,15 +284,16 @@
 
                 <div class="form-group">
                     <label for="favorite-genre">좋아하는 게임 장르</label>
-                    <select id="favorite-genre" name="favorite-genre">
+                    <select id="favorite-genre" name="favorite_genre">
                         <option value="">선택해주세요</option>
-                        <option value="action">액션</option>
-                        <option value="rpg">RPG</option>
-                        <option value="puzzle">퍼즐</option>
-                        <option value="simulation">시뮬레이션</option>
-                        <option value="strategy">전략</option>
-                        <option value="sports">스포츠</option>
-                        <option value="racing">레이싱</option>
+                        <option value="FPS">FPS/슈팅</option>
+                        <option value="MMORPG">MMORPG</option>
+                        <option value="MOBA">MOBA</option>
+                        <option value="액션">액션</option>
+                        <option value="RPG">RPG</option>
+                        <option value="전략">전략</option>
+                        <option value="스포츠">스포츠</option>
+                        <option value="레이싱">레이싱</option>
                     </select>
                 </div>
 
@@ -278,7 +302,10 @@
                     <textarea id="message" name="message" placeholder="추천받고 싶은 게임이나 사이트에 대한 의견을 자유롭게 남겨주세요!" required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">메시지 보내기</button>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">메시지 보내기</span>
+                    <span id="btnLoader" style="display: none;">전송 중...</span>
+                </button>
             </form>
 
             <div class="contact-info">
@@ -314,11 +341,76 @@
         <p>언제든지 편하게 연락주세요! 🎮</p>
     </footer>
 
+    <script src="js/common.js"></script>
     <script>
-        // 폼 제출 시 알림 (데모용)
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('데모 페이지입니다! 실제 구현 시에는 서버로 전송됩니다.');
+        // EmailJS 폼 제출 처리
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            const formNote = document.getElementById('formNote');
+            
+            // 버튼 로딩 상태
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'inline';
+            
+            // EmailJS로 이메일 전송
+            // 실제 사용 시: emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // 성공 메시지
+                    formNote.innerHTML = '<p style="color: #10b981;">✅ 메시지가 성공적으로 전송되었습니다!</p>';
+                    formNote.style.borderColor = '#10b981';
+                    
+                    // 폼 초기화
+                    document.getElementById('contact-form').reset();
+                    
+                    // Toast 알림
+                    if (window.ToastNotification) {
+                        window.ToastNotification.show('메시지가 전송되었습니다! 🎉', 'success');
+                    }
+                    
+                    // 버튼 복구
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline';
+                        btnLoader.style.display = 'none';
+                    }, 2000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // 실패 메시지 (EmailJS 미설정 시)
+                    if (error.text === 'The user ID is invalid. Visit https://dashboard.emailjs.com/admin/integration') {
+                        formNote.innerHTML = `
+                            <p style="color: #f59e0b;">⚠️ EmailJS가 아직 설정되지 않았습니다.</p>
+                            <p style="font-size: 12px; margin-top: 10px;">
+                                <strong>설정 방법:</strong><br>
+                                1. <a href="https://www.emailjs.com/" target="_blank" style="color: #4a90e2;">EmailJS</a>에 가입<br>
+                                2. Service, Template 생성<br>
+                                3. contact.html의 YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID 교체
+                            </p>
+                        `;
+                    } else {
+                        formNote.innerHTML = '<p style="color: #ef4444;">❌ 전송 실패. 다시 시도해주세요.</p>';
+                    }
+                    formNote.style.borderColor = '#ef4444';
+                    
+                    // Toast 알림
+                    if (window.ToastNotification) {
+                        window.ToastNotification.show('전송에 실패했습니다.', 'error');
+                    }
+                    
+                    // 버튼 복구
+                    submitBtn.disabled = false;
+                    btnText.style.display = 'inline';
+                    btnLoader.style.display = 'none';
+                });
         });
     </script>
 </body>
