@@ -450,6 +450,25 @@ main {
     flex-shrink: 0;
 }
 
+.stats-label-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 200px;
+}
+
+.time-label {
+    color: #667eea;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.time-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    font-weight: 400;
+}
+
 .stats-value {
     font-weight: bold;
     color: #667eea;

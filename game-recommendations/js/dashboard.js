@@ -291,6 +291,18 @@ function createTimeChart() {
     // 시간대별 통계 테이블 생성
     const statsContainer = document.getElementById('timeStats');
     if (statsContainer) {
+        const timeDescriptions = {
+            '0시': '자정 - 심야 시간대',
+            '3시': '새벽 - 최저 이용 시간',
+            '6시': '이른 아침',
+            '9시': '오전 - 출근/등교 시간',
+            '12시': '점심 시간',
+            '15시': '오후 - 이용자 증가',
+            '18시': '저녁 - 퇴근/하교 시간',
+            '21시': '밤 - 최고 피크 타임 🔥',
+            '24시': '자정 전 - 높은 이용률'
+        };
+        
         statsContainer.innerHTML = `
             <div class="stats-header">
                 <h4>⏰ 시간대별 상세 이용자 수</h4>
@@ -299,7 +311,10 @@ function createTimeChart() {
             <div class="stats-table time-stats-table">
                 ${timeData.labels.map((label, index) => `
                     <div class="stats-row">
-                        <span class="stats-label-time">${label}</span>
+                        <span class="stats-label-time-wrapper">
+                            <strong class="time-label">${label}</strong>
+                            <span class="time-desc">${timeDescriptions[label] || ''}</span>
+                        </span>
                         <span class="stats-value">${timeData.actualValues[index].toLocaleString()}명</span>
                         <span class="stats-bar">
                             <span class="stats-bar-fill" style="width: ${(timeData.values[index] / 18.2 * 100)}%"></span>
