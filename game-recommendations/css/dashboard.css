@@ -454,6 +454,167 @@ footer p {
     margin-bottom: 5px;
 }
 
+/* 인기 게임 섹션 */
+.popular-games-section {
+    margin-bottom: 40px;
+}
+
+.period-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.period-tab {
+    padding: 12px 30px;
+    border: 2px solid #667eea;
+    background-color: white;
+    color: #667eea;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.period-tab:hover {
+    background-color: #f0f0f0;
+}
+
+.period-tab.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.popular-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.popular-game-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.popular-game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.popular-game-card.rank-1::before {
+    background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+}
+
+.popular-game-card.rank-2::before {
+    background: linear-gradient(90deg, #C0C0C0 0%, #A0A0A0 100%);
+}
+
+.popular-game-card.rank-3::before {
+    background: linear-gradient(90deg, #CD7F32 0%, #B8860B 100%);
+}
+
+.popular-game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.rank-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.popular-game-card.rank-1 .rank-badge {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.popular-game-card.rank-2 .rank-badge {
+    background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%);
+}
+
+.popular-game-card.rank-3 .rank-badge {
+    background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%);
+}
+
+.game-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.game-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.game-genre-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #f0f0f0;
+    color: #667eea;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.game-stats {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-label {
+    color: #888;
+    font-size: 13px;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.stat-value.highlight {
+    color: #667eea;
+    font-size: 16px;
+}
+
 /* 상승/하락 게임 섹션 */
 .trend-section {
     margin-bottom: 30px;

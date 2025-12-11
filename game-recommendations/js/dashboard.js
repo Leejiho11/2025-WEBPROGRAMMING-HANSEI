@@ -351,11 +351,98 @@ function renderTrendGames() {
     }
 }
 
+// 인기 게임 데이터 (실시간, 일간, 월간)
+const popularGamesData = {
+    realtime: [
+        { rank: 1, name: '리그 오브 레전드', genre: 'MOBA', players: '892,451명', share: '18.5%', icon: '🏆' },
+        { rank: 2, name: '배틀그라운드', genre: 'FPS', players: '745,329명', share: '15.4%', icon: '🔫' },
+        { rank: 3, name: '피파 온라인 4', genre: '스포츠', players: '623,892명', share: '12.9%', icon: '⚽' },
+        { rank: 4, name: '로스트아크', genre: 'MMORPG', players: '512,643명', share: '10.6%', icon: '⚔️' },
+        { rank: 5, name: '오버워치 2', genre: 'FPS', players: '478,901명', share: '9.9%', icon: '🎮' },
+        { rank: 6, name: '메이플스토리', genre: 'MMORPG', players: '394,512명', share: '8.2%', icon: '🍁' },
+        { rank: 7, name: '발로란트', genre: 'FPS', players: '356,784명', share: '7.4%', icon: '💥' },
+        { rank: 8, name: '던전앤파이터', genre: '액션', players: '298,123명', share: '6.2%', icon: '👊' },
+        { rank: 9, name: '카트라이더', genre: '레이싱', players: '245,678명', share: '5.1%', icon: '🏎️' },
+        { rank: 10, name: '스타크래프트', genre: 'RTS', players: '189,432명', share: '3.9%', icon: '🚀' }
+    ],
+    daily: [
+        { rank: 1, name: '리그 오브 레전드', genre: 'MOBA', players: '2,145,789명', share: '19.2%', icon: '🏆' },
+        { rank: 2, name: '배틀그라운드', genre: 'FPS', players: '1,892,345명', share: '16.9%', icon: '🔫' },
+        { rank: 3, name: '로스트아크', genre: 'MMORPG', players: '1,523,678명', share: '13.6%', icon: '⚔️' },
+        { rank: 4, name: '피파 온라인 4', genre: '스포츠', players: '1,456,234명', share: '13.0%', icon: '⚽' },
+        { rank: 5, name: '메이플스토리', genre: 'MMORPG', players: '1,234,567명', share: '11.0%', icon: '🍁' },
+        { rank: 6, name: '오버워치 2', genre: 'FPS', players: '987,654명', share: '8.8%', icon: '🎮' },
+        { rank: 7, name: '발로란트', genre: 'FPS', players: '876,543명', share: '7.8%', icon: '💥' },
+        { rank: 8, name: '던전앤파이터', genre: '액션', players: '765,432명', share: '6.8%', icon: '👊' },
+        { rank: 9, name: '원신', genre: 'RPG', players: '543,210명', share: '4.9%', icon: '✨' },
+        { rank: 10, name: '스타크래프트', genre: 'RTS', players: '456,789명', share: '4.1%', icon: '🚀' }
+    ],
+    monthly: [
+        { rank: 1, name: '리그 오브 레전드', genre: 'MOBA', players: '58,234,567명', share: '21.5%', icon: '🏆' },
+        { rank: 2, name: '배틀그라운드', genre: 'FPS', players: '45,678,901명', share: '16.9%', icon: '🔫' },
+        { rank: 3, name: '로스트아크', genre: 'MMORPG', players: '38,901,234명', share: '14.4%', icon: '⚔️' },
+        { rank: 4, name: '메이플스토리', genre: 'MMORPG', players: '32,345,678명', share: '11.9%', icon: '🍁' },
+        { rank: 5, name: '피파 온라인 4', genre: '스포츠', players: '29,876,543명', share: '11.0%', icon: '⚽' },
+        { rank: 6, name: '던전앤파이터', genre: '액션', players: '23,456,789명', share: '8.7%', icon: '👊' },
+        { rank: 7, name: '오버워치 2', genre: 'FPS', players: '19,234,567명', share: '7.1%', icon: '🎮' },
+        { rank: 8, name: '발로란트', genre: 'FPS', players: '15,678,901명', share: '5.8%', icon: '💥' },
+        { rank: 9, name: '원신', genre: 'RPG', players: '12,345,678명', share: '4.6%', icon: '✨' },
+        { rank: 10, name: '카트라이더', genre: '레이싱', players: '9,876,543명', share: '3.6%', icon: '🏎️' }
+    ]
+};
+
+// 인기 게임 렌더링 함수
+let currentPeriod = 'realtime';
+
+function renderPopularGames(period = 'realtime') {
+    currentPeriod = period;
+    const gamesGrid = document.getElementById('popularGamesGrid');
+    if (!gamesGrid) return;
+    
+    const games = popularGamesData[period];
+    
+    gamesGrid.innerHTML = games.map(game => `
+        <div class="popular-game-card rank-${game.rank}">
+            <div class="rank-badge">#${game.rank}</div>
+            <div class="game-icon">${game.icon}</div>
+            <div class="game-details">
+                <h4 class="game-name">${game.name}</h4>
+                <span class="game-genre-badge">${game.genre}</span>
+            </div>
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">플레이어</span>
+                    <span class="stat-value">${game.players}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">점유율</span>
+                    <span class="stat-value highlight">${game.share}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// 탭 전환 이벤트 리스너
+function initPeriodTabs() {
+    const tabs = document.querySelectorAll('.period-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const period = tab.getAttribute('data-period');
+            renderPopularGames(period);
+        });
+    });
+}
+
 // 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', function() {
     setCurrentDate();
     renderRankings();
     renderTrendGames();
+    renderPopularGames('realtime');
+    initPeriodTabs();
     
     // 차트가 있는 페이지에서만 실행
     if (typeof Chart !== 'undefined') {

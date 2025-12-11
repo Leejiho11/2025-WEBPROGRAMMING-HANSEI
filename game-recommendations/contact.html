@@ -1,338 +1,673 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>연락처 - 내가 추천하는 게임 모음</title>
-    <link rel="stylesheet" href="css/theme.css">
-    <!-- EmailJS SDK        <div class="contact-container">
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">이름 *</label> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // 여기에 본인의 EmailJS Public Key 입력
-        })();
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
+<!DOCTYPE html><!DOCTYPE html>
+
+<html lang="ko"><html lang="ko">
+
+<head><head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>연락처 - 내가 추천하는 게임 모음</title>    <title>연락처 - 내가 추천하는 게임 모음</title>
+
+    <link rel="stylesheet" href="css/theme.css">    <link rel="stylesheet" href="css/theme.css">
+
+    <!-- EmailJS SDK -->    <!-- EmailJS SDK        <div class="contact-container">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>            <form class="contact-form" id="contact-form">
+
+    <script type="text/javascript">                <div class="form-group">
+
+        (function(){                    <label for="name">이름 *</label> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+            emailjs.init("YOUR_PUBLIC_KEY");    <script type="text/javascript">
+
+        })();        (function(){
+
+    </script>            emailjs.init("YOUR_PUBLIC_KEY"); // 여기에 본인의 EmailJS Public Key 입력
+
+    <style>        })();
+
+        * {    </script>
+
+            margin: 0;    <style>
+
+            padding: 0;        * {
+
+            box-sizing: border-box;            margin: 0;
+
+        }            padding: 0;
+
             box-sizing: border-box;
-        }
 
-        body {
+        body {        }
+
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #ffffff;
+
+            background-color: #1a1a1a;        body {
+
+            color: #ffffff;            font-family: Arial, sans-serif;
+
+            line-height: 1.6;            background-color: #1a1a1a;
+
+        }            color: #ffffff;
+
             line-height: 1.6;
-        }
 
-        header {
+        header {        }
+
             background-color: #2c2c2c;
-            padding: 20px 0;
+
+            padding: 20px 0;        header {
+
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);            background-color: #2c2c2c;
+
+        }            padding: 20px 0;
+
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
 
-        nav {
+        nav {        }
+
             max-width: 1200px;
-            margin: 0 auto;
+
+            margin: 0 auto;        nav {
+
+            padding: 0 20px;            max-width: 1200px;
+
+        }            margin: 0 auto;
+
             padding: 0 20px;
-        }
 
-        nav ul {
+        nav ul {        }
+
             list-style: none;
-            display: flex;
+
+            display: flex;        nav ul {
+
+            justify-content: center;            list-style: none;
+
+        }            display: flex;
+
             justify-content: center;
-        }
 
-        nav ul li {
+        nav ul li {        }
+
             margin: 0 20px;
-        }
 
-        nav ul li a {
+        }        nav ul li {
+
+            margin: 0 20px;
+
+        nav ul li a {        }
+
             color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
+
+            text-decoration: none;        nav ul li a {
+
+            font-size: 18px;            color: #ffffff;
+
+            transition: color 0.3s;            text-decoration: none;
+
+        }            font-size: 18px;
+
             transition: color 0.3s;
-        }
 
-        nav ul li a:hover {
+        nav ul li a:hover {        }
+
             color: #4a90e2;
-        }
 
-        .active {
+        }        nav ul li a:hover {
+
+            color: #4a90e2;
+
+        .active {        }
+
             color: #4a90e2 !important;
-            font-weight: bold;
-        }
 
-        main {
+            font-weight: bold;        .active {
+
+        }            color: #4a90e2 !important;
+
+            font-weight: bold;
+
+        main {        }
+
             max-width: 800px;
-            margin: 0 auto;
+
+            margin: 0 auto;        main {
+
+            padding: 40px 20px;            max-width: 800px;
+
+        }            margin: 0 auto;
+
             padding: 40px 20px;
-        }
 
-        .page-header {
+        .page-header {        }
+
             text-align: center;
+
+            margin-bottom: 50px;        .page-header {
+
+        }            text-align: center;
+
             margin-bottom: 50px;
-        }
 
-        .page-title {
+        .page-title {        }
+
             font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #4a90e2, #7b68ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 20px;        .page-title {
+
+            background: linear-gradient(45deg, #4a90e2, #7b68ee);            font-size: 48px;
+
+            -webkit-background-clip: text;            margin-bottom: 20px;
+
+            -webkit-text-fill-color: transparent;            background: linear-gradient(45deg, #4a90e2, #7b68ee);
+
+            background-clip: text;            -webkit-background-clip: text;
+
+        }            -webkit-text-fill-color: transparent;
+
             background-clip: text;
-        }
 
-        .page-description {
+        .page-description {        }
+
             font-size: 20px;
-            color: #cccccc;
-            margin-bottom: 40px;
-        }
 
-        .contact-container {
+            color: #cccccc;        .page-description {
+
+            margin-bottom: 40px;            font-size: 20px;
+
+        }            color: #cccccc;
+
+            margin-bottom: 40px;
+
+        .contact-container {        }
+
             background-color: #2c2c2c;
-            padding: 40px;
-            border-radius: 15px;
+
+            padding: 40px;        .contact-container {
+
+            border-radius: 15px;            background-color: #2c2c2c;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);            padding: 40px;
+
+        }            border-radius: 15px;
+
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
 
-        .contact-form {
+        .contact-form {        }
+
             margin-bottom: 40px;
-        }
 
-        .form-group {
+        }        .contact-form {
+
+            margin-bottom: 40px;
+
+        .form-group {        }
+
             margin-bottom: 25px;
-        }
 
-        .form-group label {
+        }        .form-group {
+
+            margin-bottom: 25px;
+
+        .form-group label {        }
+
             display: block;
-            margin-bottom: 8px;
-            color: #4a90e2;
-            font-weight: bold;
-        }
 
-        .form-group input,
+            margin-bottom: 8px;        .form-group label {
+
+            color: #4a90e2;            display: block;
+
+            font-weight: bold;            margin-bottom: 8px;
+
+        }            color: #4a90e2;
+
+            font-weight: bold;
+
+        .form-group input,        }
+
         .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            background-color: #333333;
-            border: 2px solid #444444;
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 16px;
+
+        .form-group textarea {        .form-group input,
+
+            width: 100%;        .form-group select,
+
+            padding: 15px;        .form-group textarea {
+
+            background-color: #333333;            width: 100%;
+
+            border: 2px solid #444444;            padding: 15px;
+
+            border-radius: 8px;            background-color: #333333;
+
+            color: #ffffff;            border: 2px solid #444444;
+
+            font-size: 16px;            border-radius: 8px;
+
+            transition: border-color 0.3s;            color: #ffffff;
+
+        }            font-size: 16px;
+
             transition: border-color 0.3s;
-        }
 
-        .form-group input:focus,
+        .form-group input:focus,        }
+
         .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
+
+        .form-group textarea:focus {        .form-group input:focus,
+
+            outline: none;        .form-group select:focus,
+
+            border-color: #4a90e2;        .form-group textarea:focus {
+
+        }            outline: none;
+
             border-color: #4a90e2;
-        }
 
-        .form-group textarea {
+        .form-group textarea {        }
+
             resize: vertical;
+
+            min-height: 120px;        .form-group textarea {
+
+        }            resize: vertical;
+
             min-height: 120px;
-        }
 
-        .submit-btn {
+        .submit-btn {        }
+
             background-color: #4a90e2;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
+
+            color: white;        .submit-btn {
+
+            padding: 15px 30px;            background-color: #4a90e2;
+
+            border: none;            color: white;
+
+            border-radius: 8px;            padding: 15px 30px;
+
+            font-size: 18px;            border: none;
+
+            font-weight: bold;            border-radius: 8px;
+
+            cursor: pointer;            font-size: 18px;
+
+            transition: background-color 0.3s;            font-weight: bold;
+
+            width: 100%;            cursor: pointer;
+
+        }            transition: background-color 0.3s;
+
             width: 100%;
-        }
 
-        .submit-btn:hover {
+        .submit-btn:hover {        }
+
             background-color: #357abd;
-        }
 
-        .contact-info {
+        }        .submit-btn:hover {
+
+            background-color: #357abd;
+
+        .contact-info {        }
+
             border-top: 2px solid #444444;
+
+            padding-top: 30px;        .contact-info {
+
+        }            border-top: 2px solid #444444;
+
             padding-top: 30px;
-        }
 
-        .contact-info h3 {
+        .contact-info h3 {        }
+
             color: #4a90e2;
-            margin-bottom: 20px;
-            text-align: center;
-        }
 
-        .info-grid {
+            margin-bottom: 20px;        .contact-info h3 {
+
+            text-align: center;            color: #4a90e2;
+
+        }            margin-bottom: 20px;
+
+            text-align: center;
+
+        .info-grid {        }
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));        .info-grid {
+
+            gap: 20px;            display: grid;
+
+        }            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
             gap: 20px;
-        }
 
-        .info-card {
+        .info-card {        }
+
             background-color: #333333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+
+            padding: 20px;        .info-card {
+
+            border-radius: 10px;            background-color: #333333;
+
+            text-align: center;            padding: 20px;
+
+            transition: transform 0.3s;            border-radius: 10px;
+
+        }            text-align: center;
+
             transition: transform 0.3s;
-        }
 
-        .info-card:hover {
+        .info-card:hover {        }
+
             transform: translateY(-5px);
-        }
 
-        .info-card .icon {
+        }        .info-card:hover {
+
+            transform: translateY(-5px);
+
+        .info-card .icon {        }
+
             font-size: 30px;
-            margin-bottom: 10px;
-        }
 
-        .info-card h4 {
+            margin-bottom: 10px;        .info-card .icon {
+
+        }            font-size: 30px;
+
+            margin-bottom: 10px;
+
+        .info-card h4 {        }
+
             color: #4a90e2;
+
+            margin-bottom: 10px;        .info-card h4 {
+
+        }            color: #4a90e2;
+
             margin-bottom: 10px;
-        }
 
-        .info-card p {
+        .info-card p {        }
+
             color: #cccccc;
-        }
 
-        footer {
+        }        .info-card p {
+
+            color: #cccccc;
+
+        footer {        }
+
             background-color: #2c2c2c;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
 
-        .form-note {
-            background-color: #333333;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #4a90e2;
-        }
+            text-align: center;        footer {
 
-        .form-note p {
-            color: #cccccc;
-            font-size: 14px;
-        }
-    </style>
-</head>
+            padding: 20px;            background-color: #2c2c2c;
+
+            margin-top: 50px;            text-align: center;
+
+        }            padding: 20px;
+
+    </style>            margin-top: 50px;
+
+</head>        }
+
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">🏠 홈</a></li>
-                <li><a href="games.html">🎮 게임 목록</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">📂 장르별 보기 ▼</a>
+
+    <header>        .form-note {
+
+        <nav>            background-color: #333333;
+
+            <ul class="nav-links">            padding: 15px;
+
+                <li><a href="index.html">🏠 홈</a></li>            border-radius: 8px;
+
+                <li><a href="games.html">🎮 게임 목록</a></li>            margin-bottom: 30px;
+
+                <li class="dropdown">            border-left: 4px solid #4a90e2;
+
+                    <a href="#" class="dropdown-toggle">📂 장르별 보기 ▼</a>        }
+
                     <ul class="dropdown-menu">
-                        <li><a href="fps.html">🎯 FPS</a></li>
-                        <li><a href="mmorpg.html">⚔️ MMORPG</a></li>
-                        <li><a href="moba.html">🏆 MOBA</a></li>
+
+                        <li><a href="fps.html">🎯 FPS</a></li>        .form-note p {
+
+                        <li><a href="mmorpg.html">⚔️ MMORPG</a></li>            color: #cccccc;
+
+                        <li><a href="moba.html">🏆 MOBA</a></li>            font-size: 14px;
+
+                        <li><a href="action.html">👊 액션</a></li>        }
+
+                        <li><a href="sports.html">⚽ 스포츠</a></li>    </style>
+
+                        <li><a href="racing.html">🏎️ 레이싱</a></li></head>
+
+                        <li><a href="rts.html">🚀 RTS</a></li><body>
+
+                        <li><a href="strategy.html">♟️ 전략</a></li>    <header>
+
+                        <li><a href="rpg.html">🗡️ RPG</a></li>        <nav>
+
+                        <li><a href="mobile.html">📱 모바일</a></li>            <ul class="nav-links">
+
+                    </ul>                <li><a href="index.html">🏠 홈</a></li>
+
+                </li>                <li><a href="games.html">🎮 게임 목록</a></li>
+
+                <li><a href="wizard.html">✨ 추천 마법사</a></li>                <li class="dropdown">
+
+                <li><a href="contact.html" class="active">📧 연락처</a></li>                    <a href="#" class="dropdown-toggle">📂 장르별 보기 ▼</a>
+
+                <li><button id="themeToggle" class="theme-toggle">🌙</button></li>                    <ul class="dropdown-menu">
+
+            </ul>                        <li><a href="fps.html">🎯 FPS</a></li>
+
+        </nav>                        <li><a href="mmorpg.html">⚔️ MMORPG</a></li>
+
+    </header>                        <li><a href="moba.html">🏆 MOBA</a></li>
+
                         <li><a href="action.html">👊 액션</a></li>
-                        <li><a href="sports.html">⚽ 스포츠</a></li>
-                        <li><a href="racing.html">🏎️ 레이싱</a></li>
-                        <li><a href="rts.html">🚀 RTS</a></li>
-                        <li><a href="strategy.html">♟️ 전략</a></li>
-                        <li><a href="rpg.html">🗡️ RPG</a></li>
-                        <li><a href="mobile.html">📱 모바일</a></li>
-                    </ul>
-                </li>
+
+    <main>                        <li><a href="sports.html">⚽ 스포츠</a></li>
+
+        <div class="page-header">                        <li><a href="racing.html">🏎️ 레이싱</a></li>
+
+            <h1 class="page-title">📞 연락하기</h1>                        <li><a href="rts.html">🚀 RTS</a></li>
+
+            <p class="page-description">                        <li><a href="strategy.html">♟️ 전략</a></li>
+
+                게임 추천 요청이나 사이트에 대한 피드백을 자유롭게 남겨주세요!<br>                        <li><a href="rpg.html">🗡️ RPG</a></li>
+
+                여러분의 의견이 더 좋은 게임 추천 사이트를 만드는 데 도움이 됩니다.                        <li><a href="mobile.html">📱 모바일</a></li>
+
+            </p>                    </ul>
+
+        </div>                </li>
+
                 <li><a href="wizard.html">✨ 추천 마법사</a></li>
-                <li><a href="contact.html" class="active">📧 연락처</a></li>
-                <li><button id="themeToggle" class="theme-toggle">🌙</button></li>
-            </ul>
-        </nav>
-    </header>
+
+        <div class="contact-container">                <li><a href="contact.html" class="active">📧 연락처</a></li>
+
+            <form class="contact-form" id="contact-form">                <li><button id="themeToggle" class="theme-toggle">🌙</button></li>
+
+                <div class="form-group">            </ul>
+
+                    <label for="name">이름 *</label>        </nav>
+
+                    <input type="text" id="name" name="from_name" placeholder="홍길동" required>    </header>
+
+                </div>
 
     <main>
-        <div class="page-header">
-            <h1 class="page-title">📞 연락하기</h1>
-            <p class="page-description">
-                게임 추천 요청이나 사이트에 대한 피드백을 자유롭게 남겨주세요!<br>
+
+                <div class="form-group">        <div class="page-header">
+
+                    <label for="email">이메일 *</label>            <h1 class="page-title">📞 연락하기</h1>
+
+                    <input type="email" id="email" name="reply_to" placeholder="example@email.com" required>            <p class="page-description">
+
+                </div>                게임 추천 요청이나 사이트에 대한 피드백을 자유롭게 남겨주세요!<br>
+
                 여러분의 의견이 더 좋은 게임 추천 사이트를 만드는 데 도움이 됩니다.
-            </p>
-        </div>
 
-        <div class="contact-container">
-            <form class="contact-form" id="contact-form">
-                <div class="form-note" id="formNote">
-                    <p>� EmailJS를 통해 실제로 이메일이 전송됩니다!</p>
-                    <p style="font-size: 12px; margin-top: 5px;">💡 EmailJS 설정 방법은 README를 참조하세요.</p>
-                </div>
+                <div class="form-group">            </p>
 
-                <div class="form-group">
-                    <label for="name">이름 *</label>
-                    <input type="text" id="name" name="from_name" placeholder="홍길동" required>
-                </div>
+                    <label for="category">문의 유형</label>        </div>
 
-                <div class="form-group">
-                    <label for="email">이메일 *</label>
-                    <input type="email" id="email" name="reply_to" placeholder="example@email.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">문의 유형</label>
                     <select id="category" name="category">
-                        <option value="game-request">게임 추천 요청</option>
-                        <option value="feedback">사이트 피드백</option>
-                        <option value="error">오류 신고</option>
-                        <option value="general">일반 문의</option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="favorite-genre">좋아하는 게임 장르</label>
-                    <select id="favorite-genre" name="favorite_genre">
-                        <option value="">선택해주세요</option>
+                        <option value="game-request">게임 추천 요청</option>        <div class="contact-container">
+
+                        <option value="feedback">사이트 피드백</option>            <form class="contact-form" id="contact-form">
+
+                        <option value="error">오류 신고</option>                <div class="form-note" id="formNote">
+
+                        <option value="general">일반 문의</option>                    <p>� EmailJS를 통해 실제로 이메일이 전송됩니다!</p>
+
+                    </select>                    <p style="font-size: 12px; margin-top: 5px;">💡 EmailJS 설정 방법은 README를 참조하세요.</p>
+
+                </div>                </div>
+
+
+
+                <div class="form-group">                <div class="form-group">
+
+                    <label for="favorite-genre">좋아하는 게임 장르</label>                    <label for="name">이름 *</label>
+
+                    <select id="favorite-genre" name="favorite_genre">                    <input type="text" id="name" name="from_name" placeholder="홍길동" required>
+
+                        <option value="">선택해주세요</option>                </div>
+
                         <option value="FPS">FPS/슈팅</option>
-                        <option value="MMORPG">MMORPG</option>
-                        <option value="MOBA">MOBA</option>
-                        <option value="액션">액션</option>
-                        <option value="RPG">RPG</option>
+
+                        <option value="MMORPG">MMORPG</option>                <div class="form-group">
+
+                        <option value="MOBA">MOBA</option>                    <label for="email">이메일 *</label>
+
+                        <option value="액션">액션</option>                    <input type="email" id="email" name="reply_to" placeholder="example@email.com" required>
+
+                        <option value="RPG">RPG</option>                </div>
+
                         <option value="전략">전략</option>
-                        <option value="스포츠">스포츠</option>
-                        <option value="레이싱">레이싱</option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="message">메시지 *</label>
-                    <textarea id="message" name="message" placeholder="추천받고 싶은 게임이나 사이트에 대한 의견을 자유롭게 남겨주세요!" required></textarea>
-                </div>
+                        <option value="스포츠">스포츠</option>                <div class="form-group">
 
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <span id="btnText">메시지 보내기</span>
-                    <span id="btnLoader" style="display: none;">전송 중...</span>
-                </button>
-            </form>
+                        <option value="레이싱">레이싱</option>                    <label for="category">문의 유형</label>
 
-            <div class="contact-info">
-                <h3>다른 연락 방법</h3>
-                <div class="info-grid">
+                    </select>                    <select id="category" name="category">
+
+                </div>                        <option value="game-request">게임 추천 요청</option>
+
+                        <option value="feedback">사이트 피드백</option>
+
+                <div class="form-group">                        <option value="error">오류 신고</option>
+
+                    <label for="message">메시지 *</label>                        <option value="general">일반 문의</option>
+
+                    <textarea id="message" name="message" placeholder="추천받고 싶은 게임이나 사이트에 대한 의견을 자유롭게 남겨주세요!" required></textarea>                    </select>
+
+                </div>                </div>
+
+
+
+                <button type="submit" class="submit-btn" id="submitBtn">                <div class="form-group">
+
+                    <span id="btnText">메시지 보내기</span>                    <label for="favorite-genre">좋아하는 게임 장르</label>
+
+                    <span id="btnLoader" style="display: none;">전송 중...</span>                    <select id="favorite-genre" name="favorite_genre">
+
+                </button>                        <option value="">선택해주세요</option>
+
+            </form>                        <option value="FPS">FPS/슈팅</option>
+
+                        <option value="MMORPG">MMORPG</option>
+
+            <div class="contact-info">                        <option value="MOBA">MOBA</option>
+
+                <h3>다른 연락 방법</h3>                        <option value="액션">액션</option>
+
+                <div class="info-grid">                        <option value="RPG">RPG</option>
+
+                    <div class="info-card">                        <option value="전략">전략</option>
+
+                        <div class="icon">📧</div>                        <option value="스포츠">스포츠</option>
+
+                        <h4>이메일</h4>                        <option value="레이싱">레이싱</option>
+
+                        <p>games@example.com</p>                    </select>
+
+                    </div>                </div>
+
                     <div class="info-card">
-                        <div class="icon">📧</div>
-                        <h4>이메일</h4>
-                        <p>games@example.com</p>
-                    </div>
+
+                        <div class="icon">💬</div>                <div class="form-group">
+
+                        <h4>디스코드</h4>                    <label for="message">메시지 *</label>
+
+                        <p>GameReviewer#1234</p>                    <textarea id="message" name="message" placeholder="추천받고 싶은 게임이나 사이트에 대한 의견을 자유롭게 남겨주세요!" required></textarea>
+
+                    </div>                </div>
+
                     <div class="info-card">
-                        <div class="icon">💬</div>
-                        <h4>디스코드</h4>
-                        <p>GameReviewer#1234</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="icon">🐦</div>
-                        <h4>트위터</h4>
-                        <p>@GameRecommendKR</p>
-                    </div>
-                    <div class="info-card">
+
+                        <div class="icon">🐦</div>                <button type="submit" class="submit-btn" id="submitBtn">
+
+                        <h4>트위터</h4>                    <span id="btnText">메시지 보내기</span>
+
+                        <p>@GameRecommendKR</p>                    <span id="btnLoader" style="display: none;">전송 중...</span>
+
+                    </div>                </button>
+
+                    <div class="info-card">            </form>
+
                         <div class="icon">⏰</div>
-                        <h4>응답 시간</h4>
-                        <p>보통 1-2일 내</p>
+
+                        <h4>응답 시간</h4>            <div class="contact-info">
+
+                        <p>보통 1-2일 내</p>                <h3>다른 연락 방법</h3>
+
+                    </div>                <div class="info-grid">
+
+                </div>                    <div class="info-card">
+
+            </div>                        <div class="icon">📧</div>
+
+        </div>                        <h4>이메일</h4>
+
+    </main>                        <p>games@example.com</p>
+
                     </div>
+
+    <footer>                    <div class="info-card">
+
+        <p>© 2025 내가 추천하는 게임 모음. 모든 권리 보유.</p>                        <div class="icon">💬</div>
+
+        <p>언제든지 편하게 연락주세요! 🎮</p>                        <h4>디스코드</h4>
+
+    </footer>                        <p>GameReviewer#1234</p>
+
+                    </div>
+
+    <script src="js/common.js"></script>                    <div class="info-card">
+
+    <script>                        <div class="icon">🐦</div>
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {                        <h4>트위터</h4>
+
+            event.preventDefault();                        <p>@GameRecommendKR</p>
+
+            alert('메시지가 제출되었습니다! 감사합니다.');                    </div>
+
+            this.reset();                    <div class="info-card">
+
+        });                        <div class="icon">⏰</div>
+
+    </script>                        <h4>응답 시간</h4>
+
+</body>                        <p>보통 1-2일 내</p>
+
+</html>                    </div>
+
                 </div>
             </div>
         </div>
