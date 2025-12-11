@@ -362,6 +362,85 @@ main {
     border-radius: 10px;
 }
 
+/* 통계 테이블 스타일 */
+.genre-stats,
+.time-stats {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+}
+
+.stats-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stats-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.stats-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stats-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.stats-label {
+    flex: 1;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.stats-label-time {
+    width: 60px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.stats-value {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 15px;
+    min-width: 80px;
+    text-align: right;
+}
+
+.time-stats-table .stats-row {
+    gap: 15px;
+}
+
+.stats-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+.stats-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: width 1s ease-out;
+}
+
 /* Footer */
 footer {
     background: #2c3e50;

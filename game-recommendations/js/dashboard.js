@@ -76,21 +76,28 @@ function createGenreChart() {
     const canvas = document.getElementById('genreChart');
     if (!canvas) return; // 차트 캔버스가 없으면 실행 안함
     
+    const genreData = {
+        labels: ['MOBA (리그 오브 레전드 등)', 'FPS (배틀그라운드 등)', 'MMORPG (로스트아크 등)', 'SPORTS (FC 온라인)', 'ACTION (던전앤파이터)', '기타'],
+        shortLabels: ['MOBA', 'FPS', 'MMORPG', 'SPORTS', 'ACTION', '기타'],
+        values: [42.5, 34.1, 18.7, 5.2, 4.1, 5.4],
+        colors: [
+            '#667eea',
+            '#f5576c',
+            '#4facfe',
+            '#43e97b',
+            '#fa709a',
+            '#c471ed'
+        ]
+    };
+    
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['MOBA', 'FPS', 'MMORPG', 'SPORTS', 'ACTION', '기타'],
+            labels: genreData.shortLabels,
             datasets: [{
-                data: [42.5, 34.1, 18.7, 5.2, 4.1, 5.4],
-                backgroundColor: [
-                    '#667eea',
-                    '#f5576c',
-                    '#4facfe',
-                    '#43e97b',
-                    '#fa709a',
-                    '#c471ed'
-                ],
+                data: genreData.values,
+                backgroundColor: genreData.colors,
                 borderWidth: 3,
                 borderColor: '#ffffff',
                 hoverBorderWidth: 5,
@@ -141,6 +148,22 @@ function createGenreChart() {
             }
         }
     });
+    
+    // 장르별 통계 테이블 생성
+    const statsContainer = document.getElementById('genreStats');
+    if (statsContainer) {
+        statsContainer.innerHTML = `
+            <div class="stats-table">
+                ${genreData.labels.map((label, index) => `
+                    <div class="stats-row">
+                        <span class="stats-color" style="background-color: ${genreData.colors[index]}"></span>
+                        <span class="stats-label">${label}</span>
+                        <span class="stats-value">${genreData.values[index]}%</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
 }
 
 // 시간대별 이용현황 차트
@@ -148,14 +171,20 @@ function createTimeChart() {
     const canvas = document.getElementById('timeChart');
     if (!canvas) return; // 차트 캔버스가 없으면 실행 안함
     
+    const timeData = {
+        labels: ['0시', '3시', '6시', '9시', '12시', '15시', '18시', '21시', '24시'],
+        values: [5.2, 3.8, 4.1, 6.5, 8.9, 12.0, 15.5, 18.2, 14.0],
+        actualValues: [5200, 3800, 4100, 6500, 8900, 12000, 15500, 18200, 14000]
+    };
+    
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['0시', '3시', '6시', '9시', '12시', '15시', '18시', '21시', '24시'],
+            labels: timeData.labels,
             datasets: [{
                 label: '이용자 수 (천명)',
-                data: [5.2, 3.8, 4.1, 6.5, 8.9, 12.0, 15.5, 18.2, 14.0],
+                data: timeData.values,
                 borderColor: '#667eea',
                 backgroundColor: 'rgba(102, 126, 234, 0.2)',
                 tension: 0.4,
@@ -247,6 +276,24 @@ function createTimeChart() {
             }
         }
     });
+    
+    // 시간대별 통계 테이블 생성
+    const statsContainer = document.getElementById('timeStats');
+    if (statsContainer) {
+        statsContainer.innerHTML = `
+            <div class="stats-table time-stats-table">
+                ${timeData.labels.map((label, index) => `
+                    <div class="stats-row">
+                        <span class="stats-label-time">${label}</span>
+                        <span class="stats-value">${timeData.actualValues[index].toLocaleString()}명</span>
+                        <span class="stats-bar">
+                            <span class="stats-bar-fill" style="width: ${(timeData.values[index] / 18.2 * 100)}%"></span>
+                        </span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
 }
 
 // 상승/하락 게임 렌더링
