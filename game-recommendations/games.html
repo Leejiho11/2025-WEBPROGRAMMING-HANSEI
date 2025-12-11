@@ -166,11 +166,34 @@
         .page-title {
             text-align: center;
             font-size: 36px;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
             background: linear-gradient(45deg, #4a90e2, #7b68ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        body.light-mode .page-subtitle {
+            color: #666666;
+        }
+
+        .game-count {
+            text-align: center;
+            color: #4a90e2;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        body.light-mode .game-count {
+            color: #357abd;
         }
 
         /* 검색 및 필터 섹션 */
@@ -622,6 +645,132 @@
             opacity: 0.3;
         }
 
+        .game-image.diablo4 { 
+            background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%);
+            position: relative;
+        }
+        .game-image.diablo4::after {
+            content: '⚔️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.cs2 { 
+            background: linear-gradient(135deg, #ca8a04 0%, #a16207 100%);
+            position: relative;
+        }
+        .game-image.cs2::after {
+            content: '🔫';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.eldenring { 
+            background: linear-gradient(135deg, #92400e 0%, #78350f 100%);
+            position: relative;
+        }
+        .game-image.eldenring::after {
+            content: '🛡️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.wildrift { 
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            position: relative;
+        }
+        .game-image.wildrift::after {
+            content: '📱';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.mhworld { 
+            background: linear-gradient(135deg, #166534 0%, #14532d 100%);
+            position: relative;
+        }
+        .game-image.mhworld::after {
+            content: '🐉';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.civ6 { 
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            position: relative;
+        }
+        .game-image.civ6::after {
+            content: '🏛️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.terraria { 
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            position: relative;
+        }
+        .game-image.terraria::after {
+            content: '⛏️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.clashroyale { 
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            position: relative;
+        }
+        .game-image.clashroyale::after {
+            content: '👑';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .game-image.palworld { 
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            position: relative;
+        }
+        .game-image.palworld::after {
+            content: '🦊';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
         .genre-tag {
             position: absolute;
             top: 15px;
@@ -785,8 +934,8 @@
 
     <main>
         <h1 class="page-title">추천 게임 모음</h1>
-        <p style="text-align: center; color: #cccccc; margin-bottom: 10px;">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
-        <p style="text-align: center; color: #4a90e2; font-weight: bold; margin-bottom: 20px;" id="gameCount">총 20개의 게임</p>
+        <p class="page-subtitle">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
+        <p class="game-count" id="gameCount">총 20개의 게임</p>
 
         <!-- 검색 및 필터 섹션 -->
         <div class="search-filter-section">
@@ -1242,6 +1391,216 @@
                         <div class="game-reason">
                             <h4>🌟 추천 이유</h4>
                             <p>모바일로 즐기는 메이플의 감성! 출퇴근 시간에 사냥하기 딱 좋습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 스타크래프트 리마스터 -->
+            <a href="https://starcraft.com/ko-kr/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image starcraft">
+                        <span class="genre-tag genre-rts">RTS</span>
+                        <span class="steam-tag">💻 PC</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">스타크래프트 리마스터</h3>
+                        <p class="game-description">
+                            대한민국 e스포츠의 전설! 리마스터 버전으로 돌아온 불멸의 명작 RTS 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>한국 게임 역사의 상징! 빠른 손놀림과 전략의 조화가 일품입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 디아블로 4 -->
+            <a href="https://diablo4.blizzard.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image diablo4">
+                        <span class="genre-tag genre-action">액션RPG</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 콘솔</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">디아블로 4</h3>
+                        <p class="game-description">
+                            어둡고 잔혹한 세계관의 핵 앤 슬래시 RPG! 끝없는 파밍과 빌드 조합의 재미가 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>시원한 타격감과 수집 욕구를 자극하는 아이템 파밍! 시즌제로 계속 새로워집니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 카운터 스트라이크 2 -->
+            <a href="https://www.counter-strike.net/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image cs2">
+                        <span class="genre-tag genre-fps">FPS</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">💰 무료</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">카운터 스트라이크 2</h3>
+                        <p class="game-description">
+                            FPS 장르의 전설! Source 2 엔진으로 새롭게 태어난 경쟁 슈팅 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>20년 넘게 사랑받는 정통 FPS! 실력과 전략이 결정하는 공정한 게임입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 엘든 링 -->
+            <a href="https://store.steampowered.com/app/1245620/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image eldenring">
+                        <span class="genre-tag genre-action">액션RPG</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 콘솔</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">엘든 링</h3>
+                        <p class="game-description">
+                            프롬소프트웨어의 대작 오픈월드 액션 RPG! 높은 난이도와 방대한 탐험이 특징입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>어렵지만 공정한 게임! 보스를 클리어할 때의 쾌감이 정말 큽니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 리그 오브 레전드: 와일드 리프트 -->
+            <a href="https://wildrift.leagueoflegends.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image wildrift">
+                        <span class="genre-tag genre-moba">MOBA</span>
+                        <span class="steam-tag">📱 모바일</span>
+                        <span class="steam-tag">💰 무료</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">와일드 리프트</h3>
+                        <p class="game-description">
+                            롤의 모바일 버전! 10분 안에 끝나는 빠른 게임 템포가 매력적입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>이동 중에도 즐기는 롤의 재미! PC판보다 빠르고 부담 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 몬스터 헌터 월드 -->
+            <a href="https://store.steampowered.com/app/582010/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image mhworld">
+                        <span class="genre-tag genre-action">액션</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 콘솔</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">몬스터 헌터 월드</h3>
+                        <p class="game-description">
+                            거대한 몬스터를 사냥하는 협동 액션 게임! 14가지 무기와 방대한 장비 시스템이 있습니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>친구들과 함께 거대 몬스터 사냥! 무기마다 완전히 다른 플레이 스타일을 즐길 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 문명 6 -->
+            <a href="https://store.steampowered.com/app/289070/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image civ6">
+                        <span class="genre-tag genre-strategy">전략</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 콘솔</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">문명 6</h3>
+                        <p class="game-description">
+                            역사상 가장 위대한 지도자가 되어보세요! 턴제 전략 게임의 명작입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>"한 턴만 더"의 중독성! 문명을 발전시키고 승리를 쟁취하는 재미가 최고입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 테라리아 -->
+            <a href="https://store.steampowered.com/app/105600/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image terraria">
+                        <span class="genre-tag genre-action">샌드박스</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 콘솔</span>
+                        <span class="steam-tag">💰 저렴</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">테라리아</h3>
+                        <p class="game-description">
+                            2D 샌드박스의 최고봉! 탐험, 건축, 전투가 완벽하게 조화된 인디 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>저렴한 가격에 수백 시간 플레이 가능! 친구들과 멀티플레이가 정말 재미있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 클래시 로얄 -->
+            <a href="https://clashroyale.com/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image clashroyale">
+                        <span class="genre-tag genre-strategy">전략</span>
+                        <span class="steam-tag">📱 모바일</span>
+                        <span class="steam-tag">💰 무료</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">클래시 로얄</h3>
+                        <p class="game-description">
+                            실시간 대전 카드 게임! 3분 안에 승부가 나는 짧고 강렬한 전략 게임입니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>짧은 시간에 즐기는 전략의 깊이! e스포츠 대회도 활발합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 팔월드 -->
+            <a href="https://store.steampowered.com/app/1623730/" target="_blank" class="game-link">
+                <div class="game-card">
+                    <div class="game-image palworld">
+                        <span class="genre-tag genre-action">오픈월드</span>
+                        <span class="steam-tag">💻 PC</span>
+                        <span class="steam-tag">🎮 Xbox</span>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">팔월드</h3>
+                        <p class="game-description">
+                            팰을 수집하고 함께 살아가는 오픈월드 서바이벌! 건축, 전투, 육성이 모두 가능합니다.
+                        </p>
+                        <div class="game-reason">
+                            <h4>🌟 추천 이유</h4>
+                            <p>2024년 초대박 게임! 귀여운 팰들과 함께하는 자유로운 모험이 매력적입니다.</p>
                         </div>
                     </div>
                 </div>
