@@ -366,9 +366,30 @@ main {
 .genre-stats,
 .time-stats {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
+}
+
+.stats-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.stats-header h4 {
+    color: #667eea;
+    font-size: 20px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stats-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin: 0;
 }
 
 .stats-table {

@@ -153,6 +153,10 @@ function createGenreChart() {
     const statsContainer = document.getElementById('genreStats');
     if (statsContainer) {
         statsContainer.innerHTML = `
+            <div class="stats-header">
+                <h4>📊 장르별 상세 점유율</h4>
+                <p class="stats-description">각 게임 장르별 플레이어 점유율을 한 눈에 확인하세요</p>
+            </div>
             <div class="stats-table">
                 ${genreData.labels.map((label, index) => `
                     <div class="stats-row">
@@ -281,6 +285,10 @@ function createTimeChart() {
     const statsContainer = document.getElementById('timeStats');
     if (statsContainer) {
         statsContainer.innerHTML = `
+            <div class="stats-header">
+                <h4>⏰ 시간대별 상세 이용자 수</h4>
+                <p class="stats-description">24시간 동안의 시간대별 동접자 수를 확인하세요</p>
+            </div>
             <div class="stats-table time-stats-table">
                 ${timeData.labels.map((label, index) => `
                     <div class="stats-row">
