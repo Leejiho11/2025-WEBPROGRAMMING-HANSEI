@@ -158,13 +158,20 @@ function createGenreChart() {
                 <p class="stats-description">각 게임 장르별 플레이어 점유율을 한 눈에 확인하세요</p>
             </div>
             <div class="stats-table">
-                ${genreData.labels.map((label, index) => `
-                    <div class="stats-row">
-                        <span class="stats-color" style="background-color: ${genreData.colors[index]}"></span>
-                        <span class="stats-label">${label}</span>
-                        <span class="stats-value">${genreData.values[index]}%</span>
-                    </div>
-                `).join('')}
+                ${genreData.labels.map((label, index) => {
+                    const genreType = genreData.shortLabels[index];
+                    const genreDesc = label.replace(genreType, '').trim();
+                    return `
+                        <div class="stats-row">
+                            <span class="stats-color" style="background-color: ${genreData.colors[index]}"></span>
+                            <span class="stats-label">
+                                <strong class="genre-type">${genreType}</strong>
+                                <span class="genre-desc">${genreDesc}</span>
+                            </span>
+                            <span class="stats-value">${genreData.values[index]}%</span>
+                        </div>
+                    `;
+                }).join('')}
             </div>
         `;
     }
