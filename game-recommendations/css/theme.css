@@ -112,13 +112,14 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-secondary) !important;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     padding: 10px 0;
     min-width: 200px;
     box-shadow: 0 5px 20px var(--shadow);
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -132,14 +133,21 @@ nav {
 .dropdown-menu li a {
     display: block;
     padding: 10px 20px;
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
     text-decoration: none;
     transition: all 0.3s;
+    font-weight: 500;
 }
 
 .dropdown-menu li a:hover {
     background-color: var(--hover-bg);
-    color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+}
+
+.dropdown-menu li a.active {
+    background-color: var(--accent-primary);
+    color: white !important;
+    font-weight: 700;
 }
 
 /* 테마 토글 버튼 */
