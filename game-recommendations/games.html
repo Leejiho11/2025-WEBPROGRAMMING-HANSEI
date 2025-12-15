@@ -1077,7 +1077,7 @@
         <div class="games-grid" id="gamesGrid">
             <!-- 리그 오브 레전드 -->
             <a href="https://www.leagueoflegends.com/ko-kr/" target="_blank" class="game-link">
-                <div class="game-card">
+                <div class="game-card" data-genre="moba" data-platform="PC" data-price="무료">
                     <div class="game-image lol">
                         <span class="genre-tag genre-moba">MOBA</span>
                         <span class="steam-tag">💻 PC</span>
@@ -1097,7 +1097,7 @@
 
             <!-- 배틀그라운드 -->
             <a href="https://store.steampowered.com/app/578080/PLAYERUNKNOWNS_BATTLEGROUNDS/" target="_blank" class="game-link">
-                <div class="game-card">
+                <div class="game-card" data-genre="fps" data-platform="PC" data-price="유료">
                     <div class="game-image pubg">
                         <span class="genre-tag genre-fps">FPS</span>
                         <span class="steam-tag">🎮 Steam</span>
@@ -1941,7 +1941,7 @@
 
             <!-- 붕괴: 스타레일 -->
             <a href="https://hsr.hoyoverse.com/" target="_blank" class="game-link">
-                <div class="game-card">
+                <div class="game-card" data-genre="rpg" data-platform="PC,모바일" data-price="무료">
                     <div class="game-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); position: relative;">
                         <span style="content: '🚂'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; opacity: 0.3;">🚂</span>
                         <span class="genre-tag genre-rpg">RPG</span>
@@ -2136,6 +2136,49 @@
         // 로컬 스토리지에서 즐겨찾기 불러오기
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+        // data 속성이 없는 게임 카드에 자동으로 추가
+        gameCards.forEach(card => {
+            if (!card.dataset.genre || !card.dataset.platform || !card.dataset.price) {
+                const genreTag = card.querySelector('.genre-tag');
+                const platformTags = card.querySelectorAll('.steam-tag');
+                
+                if (genreTag) {
+                    // 장르 추출
+                    const genreText = genreTag.textContent.trim();
+                    const genreMap = {
+                        'MOBA': 'moba', 'FPS': 'fps', 'MMORPG': 'mmorpg',
+                        'ACTION': 'action', 'SPORTS': 'sports', 'RACING': 'racing',
+                        'RTS': 'rts', '전략': '전략', 'RPG': 'rpg',
+                        'SANDBOX': 'sandbox', 'CARD': 'card', 'HORROR': 'horror'
+                    };
+                    card.dataset.genre = genreMap[genreText] || genreText.toLowerCase();
+                    
+                    // 플랫폼 추출
+                    const platforms = [];
+                    platformTags.forEach(tag => {
+                        const text = tag.textContent.trim();
+                        if (text.includes('PC') || text.includes('Steam')) platforms.push('PC');
+                        if (text.includes('모바일')) platforms.push('모바일');
+                        if (text.includes('콘솔')) platforms.push('콘솔');
+                    });
+                    card.dataset.platform = platforms.join(',') || 'PC';
+                    
+                    // 가격 추출
+                    let hasPrice = false;
+                    platformTags.forEach(tag => {
+                        const text = tag.textContent.trim();
+                        if (text.includes('무료')) {
+                            card.dataset.price = '무료';
+                            hasPrice = true;
+                        }
+                    });
+                    if (!hasPrice) {
+                        card.dataset.price = '유료';
+                    }
+                }
+            }
+        });
+
         // 페이지 로드 시 테마 설정
         const savedTheme = localStorage.getItem('theme') || 'dark';
         if (savedTheme === 'light') {
@@ -2249,8 +2292,12 @@
                 const gameName = card.querySelector('.game-title').textContent;
                 const gameNameLower = gameName.toLowerCase();
                 const gameGenre = card.querySelector('.genre-tag').textContent;
-                const gamePlatform = card.querySelector('.steam-tag') ? card.querySelector('.steam-tag').textContent : '';
                 const gameDescription = card.querySelector('.game-description').textContent;
+                
+                // data 속성에서 값 가져오기
+                const cardGenre = card.dataset.genre || '';
+                const cardPlatforms = card.dataset.platform || '';
+                const cardPrice = card.dataset.price || '';
                 
                 // 검색어 매칭
                 const matchesSearch = gameNameLower.includes(searchTerm);
@@ -2260,24 +2307,22 @@
                 if (currentFilters.genre === 'favorites') {
                     matchesGenre = favorites.includes(gameName);
                 } else if (currentFilters.genre !== 'all') {
-                    matchesGenre = gameGenre === currentFilters.genre;
+                    // 대소문자 구분 없이 비교
+                    matchesGenre = cardGenre.toLowerCase() === currentFilters.genre.toLowerCase();
                 }
                 
-                // 플랫폼 매칭
+                // 플랫폼 매칭 (쉼표로 구분된 여러 플랫폼 지원)
                 let matchesPlatform = true;
                 if (currentFilters.platform !== 'all') {
-                    matchesPlatform = gamePlatform.includes(currentFilters.platform);
+                    // 플랫폼 목록을 배열로 변환하고 현재 필터와 매칭
+                    const platforms = cardPlatforms.split(',').map(p => p.trim());
+                    matchesPlatform = platforms.includes(currentFilters.platform);
                 }
                 
                 // 가격 매칭
                 let matchesPrice = true;
                 if (currentFilters.price !== 'all') {
-                    const isFree = gameDescription.includes('무료') || gameName.includes('무료');
-                    if (currentFilters.price === '무료') {
-                        matchesPrice = isFree;
-                    } else {
-                        matchesPrice = !isFree;
-                    }
+                    matchesPrice = cardPrice === currentFilters.price;
                 }
                 
                 // 모든 조건 만족 여부
