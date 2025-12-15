@@ -179,24 +179,47 @@
         }
 
         .game-result-image {
-            height: 150px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 60px;
             position: relative;
+            overflow: hidden;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .game-result-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: brightness(0.9);
+            z-index: 0;
+        }
+
+        .game-result-image > * {
+            position: relative;
+            z-index: 1;
         }
 
         .match-badge {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: #10b981;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 25px;
             font-size: 14px;
             font-weight: bold;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .game-result-content {

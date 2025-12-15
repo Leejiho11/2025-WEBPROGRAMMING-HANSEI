@@ -19,7 +19,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 9.2,
                 icon: '⚔️',
-                gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+                image: 'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt7ce7c20f16332775/5db05fa8347d1c6baa57be25/001-Server-Browser.jpg',
+                gradient: 'linear-gradient(135deg, #0a1428 0%, #091428 50%, #0e2347 100%)',
+                pattern: 'radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
                 reason: 'PC방 1위 MOBA 게임! 전략적 팀 플레이와 경쟁을 즐기시는 분에게 완벽합니다.',
                 tags: ['무료', 'e스포츠', '팀 플레이']
             },
@@ -52,7 +54,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.5,
                 icon: '🎯',
-                gradient: 'linear-gradient(135deg, #f77f00 0%, #d62828 100%)',
+                image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg',
+                gradient: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3d2a1f 100%)',
+                pattern: 'radial-gradient(circle at 80% 20%, rgba(247, 127, 0, 0.2) 0%, transparent 50%)',
                 reason: '배틀로얄의 원조! 친구들과 치킨을 먹는 짜릿함을 경험하세요.',
                 tags: ['배틀로얄', '생존', '무료']
             },
@@ -74,7 +78,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.8,
                 icon: '⚡',
-                gradient: 'linear-gradient(135deg, #ff4655 0%, #bd3944 100%)',
+                image: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/de051ef78ee42c28303a1edecf0e361751b7a83f-1920x1080.jpg',
+                gradient: 'linear-gradient(135deg, #0f1923 0%, #ff4655 50%, #bd3944 100%)',
+                pattern: 'radial-gradient(circle at 30% 40%, rgba(255, 70, 85, 0.25) 0%, transparent 50%)',
                 reason: '전술 슈팅과 캐릭터 능력이 결합된 신개념 FPS! 전략적 플레이를 좋아하신다면 최고입니다.',
                 tags: ['무료', '전술 슈팅', '5vs5']
             },
@@ -173,7 +179,8 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.6,
                 icon: '👊',
-                gradient: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
+                gradient: 'linear-gradient(135deg, #1a1625 0%, #ec4899 50%, #db2777 100%)',
+                pattern: 'radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.2) 0%, transparent 70%)',
                 reason: '최고의 타격감! 다양한 직업으로 던전을 정복하는 재미가 끝내줍니다.',
                 tags: ['무료', '액션', 'RPG']
             },
@@ -184,7 +191,8 @@ class GameWizard {
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.4,
                 icon: '⭐',
-                gradient: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                gradient: 'linear-gradient(135deg, #fef3c7 0%, #fbbf24 50%, #f59e0b 100%)',
+                pattern: 'repeating-radial-gradient(circle at 30% 30%, transparent 0, transparent 20px, rgba(251, 191, 36, 0.1) 20px, rgba(251, 191, 36, 0.1) 40px)',
                 reason: '3분 안에 끝나는 짧고굵은 배틀! 친구들과 함께 즐기기 좋습니다.',
                 tags: ['무료', '모바일', '팀전']
             },
@@ -195,7 +203,9 @@ class GameWizard {
                 playStyle: ['competitive', 'casual'],
                 rating: 8.1,
                 icon: '👑',
-                gradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                image: 'https://clashroyale.com/uploaded-images-blog/CR_Social.jpg',
+                gradient: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%)',
+                pattern: 'radial-gradient(circle at 70% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
                 reason: '전략과 타이밍이 중요한 실시간 대전! 카드 조합의 재미를 느껴보세요.',
                 tags: ['무료', '모바일', '전략']
             },
@@ -239,7 +249,9 @@ class GameWizard {
                 playStyle: ['casual', 'multiplayer'],
                 rating: 9.5,
                 icon: '⛏️',
-                gradient: 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)',
+                image: 'https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg',
+                gradient: 'linear-gradient(135deg, #1a5c1a 0%, #2d7a2d 50%, #4a9d4a 100%)',
+                pattern: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(132, 204, 22, 0.1) 10px, rgba(132, 204, 22, 0.1) 20px)',
                 reason: '무한한 창의성의 세계! 친구들과 함께 건축하고 모험하세요.',
                 tags: ['샌드박스', '건축', '서바이벌']
             },
@@ -349,7 +361,9 @@ class GameWizard {
                 playStyle: ['casual', 'story'],
                 rating: 9.0,
                 icon: '✨',
-                gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+                image: 'https://genshin.hoyoverse.com/content/yuanshen/getContentList?content_id=1466',
+                gradient: 'linear-gradient(135deg, #1e3a8a 0%, #5b21b6 50%, #ec4899 100%)',
+                pattern: 'radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.3) 0%, transparent 60%)',
                 reason: '아름다운 오픈월드와 매력적인 캐릭터들! 무료로 즐기는 콘솔급 퀄리티.',
                 tags: ['무료', 'RPG', '오픈월드']
             },
@@ -360,7 +374,8 @@ class GameWizard {
                 playStyle: ['casual', 'story'],
                 rating: 8.8,
                 icon: '🚂',
-                gradient: 'linear-gradient(135deg, #f472b6 0%, #ec4899 100%)',
+                gradient: 'linear-gradient(135deg, #2e1065 0%, #f472b6 50%, #ec4899 100%)',
+                pattern: 'radial-gradient(circle at 40% 40%, rgba(244, 114, 182, 0.3) 0%, transparent 70%)',
                 reason: '턴제 전투의 전략성과 매력적인 스토리! 원신 제작사의 SF RPG입니다.',
                 tags: ['무료', 'RPG', '턴제']
             },
@@ -371,7 +386,8 @@ class GameWizard {
                 playStyle: ['casual', 'story'],
                 rating: 8.7,
                 icon: '🎓',
-                gradient: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                gradient: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%)',
+                pattern: 'repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(59, 130, 246, 0.1) 15px, rgba(59, 130, 246, 0.1) 30px)',
                 reason: '탄탄한 스토리와 귀여운 캐릭터! 모바일로 편하게 즐기세요.',
                 tags: ['무료', '모바일', '수집']
             },
@@ -404,7 +420,8 @@ class GameWizard {
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.0,
                 icon: '⚽',
-                gradient: 'linear-gradient(135deg, #00a651 0%, #008744 100%)',
+                gradient: 'linear-gradient(135deg, #064e3b 0%, #00a651 50%, #34d399 100%)',
+                pattern: 'repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(0, 166, 81, 0.1) 50px, rgba(0, 166, 81, 0.1) 100px)',
                 reason: '무료로 즐기는 리얼 축구! 모든 플랫폼에서 크로스플레이가 가능합니다.',
                 tags: ['무료', '축구', '크로스플레이']
             },
@@ -415,7 +432,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer', 'story'],
                 rating: 8.7,
                 icon: '⚔️',
-                gradient: 'linear-gradient(135deg, #4a5568 0%, #2d3748 100%)',
+                image: 'https://wutheringwaves.kurogames.com/assets/banner.jpg',
+                gradient: 'linear-gradient(135deg, #1e293b 0%, #4a5568 50%, #64748b 100%)',
+                pattern: 'radial-gradient(circle at 60% 40%, rgba(74, 85, 104, 0.3) 0%, transparent 60%)',
                 reason: '쿠로게임즈의 오픈월드 액션 RPG! 화려한 전투와 아름다운 그래픽.',
                 tags: ['무료', 'MMORPG', '오픈월드']
             },
@@ -426,7 +445,8 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.9,
                 icon: '👑',
-                gradient: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                gradient: 'linear-gradient(135deg, #7c2d12 0%, #fbbf24 50%, #fef3c7 100%)',
+                pattern: 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.3) 0%, transparent 70%)',
                 reason: '중국 1위 모바일 MOBA! 빠른 게임 진행과 다양한 영웅들.',
                 tags: ['무료', 'MOBA', '모바일']
             },
@@ -437,7 +457,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.8,
                 icon: '🎖️',
-                gradient: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+                image: 'https://media.contentapi.ea.com/content/dam/apex-legends/images/2019/01/apex-featured-image-16x9.jpg.adapt.crop191x100.1200w.jpg',
+                gradient: 'linear-gradient(135deg, #1a1a1a 0%, #ef4444 50%, #dc2626 100%)',
+                pattern: 'radial-gradient(circle at 70% 30%, rgba(239, 68, 68, 0.3) 0%, transparent 60%)',
                 reason: '레전드들의 특수 능력을 활용한 배틀로얄! 역동적인 전투가 특징.',
                 tags: ['무료', '배틀로얄', '영웅']
             },
@@ -448,7 +470,9 @@ class GameWizard {
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 9.0,
                 icon: '🐉',
-                gradient: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
+                image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg',
+                gradient: 'linear-gradient(135deg, #450a0a 0%, #dc2626 50%, #991b1b 100%)',
+                pattern: 'radial-gradient(circle at 40% 60%, rgba(220, 38, 38, 0.25) 0%, transparent 70%)',
                 reason: 'MOBA의 전설! 복잡하지만 깊이 있는 전략성을 자랑합니다.',
                 tags: ['무료', 'MOBA', 'e스포츠']
             },
@@ -459,7 +483,9 @@ class GameWizard {
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.7,
                 icon: '🔨',
-                gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                image: 'https://cdn2.unrealengine.com/fortnite-og-1920x1080-d25e1e79f94d.jpg',
+                gradient: 'linear-gradient(135deg, #3730a3 0%, #8b5cf6 50%, #c084fc 100%)',
+                pattern: 'repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(139, 92, 246, 0.1) 20px, rgba(139, 92, 246, 0.1) 40px)',
                 reason: '건축 + 배틀로얄! 창의적인 전투와 다양한 협업 콘텐츠.',
                 tags: ['무료', '배틀로얄', '건축']
             },
@@ -470,7 +496,9 @@ class GameWizard {
                 playStyle: ['story', 'multiplayer'],
                 rating: 9.5,
                 icon: '🚗',
-                gradient: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
+                image: 'https://media.rockstargames.com/rockstargames-newsite/img/global/games/fob/1280/V.jpg',
+                gradient: 'linear-gradient(135deg, #052e16 0%, #16a34a 50%, #22c55e 100%)',
+                pattern: 'radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.2) 0%, transparent 60%)',
                 reason: '오픈월드 액션의 정점! 자유도 높은 게임플레이와 방대한 콘텐츠.',
                 tags: ['유료', '오픈월드', '액션']
             },
@@ -707,29 +735,45 @@ class GameWizard {
             `;
         } else {
             // 결과 렌더링
-            gamesContainer.innerHTML = topGames.map(game => `
-            <div class="game-result-card">
-                <div class="game-result-image" style="background: ${game.gradient}">
-                    <span style="font-size: 60px;">${game.icon}</span>
-                    <div class="match-badge">${game.matchScore}% 매치</div>
+            gamesContainer.innerHTML = topGames.map(game => {
+                // 이미지가 있으면 이미지를, 없으면 gradient + icon 사용
+                let imageStyle = '';
+                if (game.image) {
+                    imageStyle = `
+                        background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('${game.image}') center/cover;
+                    `;
+                } else {
+                    imageStyle = `
+                        background: ${game.gradient};
+                        ${game.pattern ? `background-image: ${game.pattern}, ${game.gradient};` : ''}
+                        position: relative;
+                    `;
+                }
+                
+                return `
+                <div class="game-result-card">
+                    <div class="game-result-image" style="${imageStyle}">
+                        ${!game.image ? `<span style="font-size: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">${game.icon}</span>` : ''}
+                        <div class="match-badge">${game.matchScore}% 매치</div>
+                    </div>
+                    <div class="game-result-content">
+                        <h3 class="game-result-title">${game.name}</h3>
+                        <div class="game-result-tags">
+                            ${game.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <span style="color: #fbbf24;">⭐ ${game.rating}/10</span>
+                            <span style="color: var(--text-tertiary);">|</span>
+                            <span style="color: var(--text-secondary);">${game.genre}</span>
+                        </div>
+                        <div class="game-result-reason">
+                            <h4>💡 추천 이유</h4>
+                            <p>${game.reason}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="game-result-content">
-                    <h3 class="game-result-title">${game.name}</h3>
-                    <div class="game-result-tags">
-                        ${game.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <span style="color: #fbbf24;">⭐ ${game.rating}/10</span>
-                        <span style="color: var(--text-tertiary);">|</span>
-                        <span style="color: var(--text-secondary);">${game.genre}</span>
-                    </div>
-                    <div class="game-result-reason">
-                        <h4>💡 추천 이유</h4>
-                        <p>${game.reason}</p>
-                    </div>
-                </div>
-            </div>
-        `).join('');
+                `;
+            }).join('');
         }
 
         resultContainer.classList.add('show');
