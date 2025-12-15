@@ -1,4 +1,4 @@
-// 게임 추천 마법사 로직
+﻿// 게임 추천 마법사 로직
 
 class GameWizard {
     constructor() {
@@ -26,7 +26,7 @@ class GameWizard {
             {
                 name: '리그 오브 레전드: 와일드 리프트',
                 genre: 'MOBA',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.5,
                 icon: '⚔️',
@@ -37,7 +37,7 @@ class GameWizard {
             {
                 name: '포켓몬 유나이트',
                 genre: 'MOBA',
-                platform: ['Mobile', 'Console'],
+                platform: ['모바일', '콘솔'],
                 playStyle: ['casual', 'multiplayer'],
                 rating: 7.8,
                 icon: '⚡',
@@ -48,7 +48,7 @@ class GameWizard {
             {
                 name: '배틀그라운드 PC',
                 genre: 'FPS',
-                platform: ['PC', 'Console'],
+                platform: ['PC', '콘솔'],
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.5,
                 icon: '🎯',
@@ -57,14 +57,14 @@ class GameWizard {
                 tags: ['배틀로얄', '생존', '무료']
             },
             {
-                name: '배틀그라운드 모바일',
+                name: 'PUBG 모바일',
                 genre: 'FPS',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'multiplayer'],
-                rating: 8.3,
+                rating: 8.4,
                 icon: '📱',
                 gradient: 'linear-gradient(135deg, #f77f00 0%, #d62828 100%)',
-                reason: '모바일에서 즐기는 배틀로얄! 언제 어디서나 치킨을 노려보세요.',
+                reason: '모바일 배틀로얄의 강자! 100명이 펼치는 생존 게임.',
                 tags: ['배틀로얄', '모바일', '무료']
             },
             {
@@ -81,7 +81,7 @@ class GameWizard {
             {
                 name: '콜 오브 듀티 모바일',
                 genre: 'FPS',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.4,
                 icon: '🔫',
@@ -114,7 +114,7 @@ class GameWizard {
             {
                 name: '리니지M',
                 genre: 'MMORPG',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 7.9,
                 icon: '⚔️',
@@ -125,7 +125,7 @@ class GameWizard {
             {
                 name: '검은사막 모바일',
                 genre: 'MMORPG',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['casual', 'multiplayer', 'story'],
                 rating: 8.2,
                 icon: '🏜️',
@@ -147,7 +147,7 @@ class GameWizard {
             {
                 name: 'FC 모바일',
                 genre: 'SPORTS',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.0,
                 icon: '⚽',
@@ -158,7 +158,7 @@ class GameWizard {
             {
                 name: 'NBA 2K 모바일',
                 genre: 'SPORTS',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual'],
                 rating: 7.9,
                 icon: '🏀',
@@ -180,7 +180,7 @@ class GameWizard {
             {
                 name: '브롤스타즈',
                 genre: 'ACTION',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.4,
                 icon: '⭐',
@@ -191,7 +191,7 @@ class GameWizard {
             {
                 name: '클래시 로얄',
                 genre: 'ACTION',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual'],
                 rating: 8.1,
                 icon: '👑',
@@ -213,7 +213,7 @@ class GameWizard {
             {
                 name: '오버워치 2',
                 genre: 'FPS',
-                platform: ['PC', 'Console'],
+                platform: ['PC', '콘솔'],
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 8.4,
                 icon: '🎮',
@@ -224,7 +224,7 @@ class GameWizard {
             {
                 name: '에이펙스 레전드 모바일',
                 genre: 'FPS',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 8.0,
                 icon: '🎖️',
@@ -235,7 +235,7 @@ class GameWizard {
             {
                 name: '마인크래프트',
                 genre: 'SANDBOX',
-                platform: ['PC', 'Mobile', 'Console'],
+                platform: ['PC', '모바일', '콘솔'],
                 playStyle: ['casual', 'multiplayer'],
                 rating: 9.5,
                 icon: '⛏️',
@@ -257,7 +257,7 @@ class GameWizard {
             {
                 name: '카트라이더 러쉬플러스',
                 genre: 'RACING',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual', 'multiplayer'],
                 rating: 7.8,
                 icon: '🏁',
@@ -268,7 +268,7 @@ class GameWizard {
             {
                 name: '아스팔트 9',
                 genre: 'RACING',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'casual'],
                 rating: 8.3,
                 icon: '🏎️',
@@ -290,7 +290,7 @@ class GameWizard {
             {
                 name: '클래시 오브 클랜',
                 genre: 'STRATEGY',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['casual', 'multiplayer'],
                 rating: 8.6,
                 icon: '⚔️',
@@ -301,7 +301,7 @@ class GameWizard {
             {
                 name: '로드 모바일',
                 genre: 'STRATEGY',
-                platform: ['Mobile'],
+                platform: ['모바일'],
                 playStyle: ['competitive', 'multiplayer'],
                 rating: 7.7,
                 icon: '🏰',
@@ -323,7 +323,7 @@ class GameWizard {
             {
                 name: '팀파이트 택틱스',
                 genre: 'STRATEGY',
-                platform: ['PC', 'Mobile'],
+                platform: ['PC', '모바일'],
                 playStyle: ['casual', 'competitive'],
                 rating: 8.5,
                 icon: '♟️',
@@ -334,7 +334,7 @@ class GameWizard {
             {
                 name: '디아블로 4',
                 genre: 'RPG',
-                platform: ['PC', 'Console'],
+                platform: ['PC', '콘솔'],
                 playStyle: ['story', 'multiplayer'],
                 rating: 8.6,
                 icon: '😈',
@@ -345,7 +345,7 @@ class GameWizard {
             {
                 name: '원신',
                 genre: 'RPG',
-                platform: ['PC', 'Mobile', 'Console'],
+                platform: ['PC', '모바일', '콘솔'],
                 playStyle: ['casual', 'story'],
                 rating: 9.0,
                 icon: '✨',
@@ -356,7 +356,7 @@ class GameWizard {
             {
                 name: '붕괴: 스타레일',
                 genre: 'RPG',
-                platform: ['PC', 'Mobile'],
+                platform: ['PC', '모바일'],
                 playStyle: ['casual', 'story'],
                 rating: 8.8,
                 icon: '🚂',
@@ -366,8 +366,8 @@ class GameWizard {
             },
             {
                 name: '블루 아카이브',
-                genre: 'MOBILE',
-                platform: ['Mobile'],
+                genre: '모바일',
+                platform: ['모바일'],
                 playStyle: ['casual', 'story'],
                 rating: 8.7,
                 icon: '🎓',
@@ -377,8 +377,8 @@ class GameWizard {
             },
             {
                 name: '승리의 여신: 니케',
-                genre: 'MOBILE',
-                platform: ['Mobile'],
+                genre: '모바일',
+                platform: ['모바일'],
                 playStyle: ['casual', 'story'],
                 rating: 8.3,
                 icon: '🎯',
@@ -388,14 +388,113 @@ class GameWizard {
             },
             {
                 name: '쿠키런: 킹덤',
-                genre: 'MOBILE',
-                platform: ['Mobile'],
+                genre: '모바일',
+                platform: ['모바일'],
                 playStyle: ['casual'],
                 rating: 8.1,
                 icon: '🍪',
                 gradient: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
                 reason: '귀여운 쿠키들과 함께하는 왕국 건설! 남녀노소 즐길 수 있습니다.',
                 tags: ['무료', '전략', '캐주얼']
+            },
+            {
+                name: 'eFootball 2024',
+                genre: 'SPORTS',
+                platform: ['PC', '모바일', '콘솔'],
+                playStyle: ['competitive', 'casual', 'multiplayer'],
+                rating: 8.0,
+                icon: '⚽',
+                gradient: 'linear-gradient(135deg, #00a651 0%, #008744 100%)',
+                reason: '무료로 즐기는 리얼 축구! 모든 플랫폼에서 크로스플레이가 가능합니다.',
+                tags: ['무료', '축구', '크로스플레이']
+            },
+            {
+                name: '명조',
+                genre: 'MMORPG',
+                platform: ['PC', '모바일'],
+                playStyle: ['competitive', 'multiplayer', 'story'],
+                rating: 8.7,
+                icon: '⚔️',
+                gradient: 'linear-gradient(135deg, #4a5568 0%, #2d3748 100%)',
+                reason: '쿠로게임즈의 오픈월드 액션 RPG! 화려한 전투와 아름다운 그래픽.',
+                tags: ['무료', 'MMORPG', '오픈월드']
+            },
+            {
+                name: 'Honor of Kings',
+                genre: 'MOBA',
+                platform: ['모바일'],
+                playStyle: ['competitive', 'multiplayer'],
+                rating: 8.9,
+                icon: '👑',
+                gradient: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                reason: '중국 1위 모바일 MOBA! 빠른 게임 진행과 다양한 영웅들.',
+                tags: ['무료', 'MOBA', '모바일']
+            },
+            {
+                name: 'APEX 레전드',
+                genre: 'FPS',
+                platform: ['PC', '콘솔'],
+                playStyle: ['competitive', 'multiplayer'],
+                rating: 8.8,
+                icon: '🎖️',
+                gradient: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+                reason: '레전드들의 특수 능력을 활용한 배틀로얄! 역동적인 전투가 특징.',
+                tags: ['무료', '배틀로얄', '영웅']
+            },
+            {
+                name: '도타 2',
+                genre: 'MOBA',
+                platform: ['PC'],
+                playStyle: ['competitive', 'multiplayer'],
+                rating: 9.0,
+                icon: '🐉',
+                gradient: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
+                reason: 'MOBA의 전설! 복잡하지만 깊이 있는 전략성을 자랑합니다.',
+                tags: ['무료', 'MOBA', 'e스포츠']
+            },
+            {
+                name: '포트나이트',
+                genre: 'FPS',
+                platform: ['PC', '모바일', '콘솔'],
+                playStyle: ['competitive', 'casual', 'multiplayer'],
+                rating: 8.7,
+                icon: '🔨',
+                gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                reason: '건축 + 배틀로얄! 창의적인 전투와 다양한 협업 콘텐츠.',
+                tags: ['무료', '배틀로얄', '건축']
+            },
+            {
+                name: 'GTA 5',
+                genre: 'ACTION',
+                platform: ['PC', '콘솔'],
+                playStyle: ['story', 'multiplayer'],
+                rating: 9.5,
+                icon: '🚗',
+                gradient: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
+                reason: '오픈월드 액션의 정점! 자유도 높은 게임플레이와 방대한 콘텐츠.',
+                tags: ['유료', '오픈월드', '액션']
+            },
+            {
+                name: 'PUBG 모바일',
+                genre: 'FPS',
+                platform: ['모바일'],
+                playStyle: ['competitive', 'multiplayer'],
+                rating: 8.4,
+                icon: '🎯',
+                gradient: 'linear-gradient(135deg, #f77f00 0%, #d62828 100%)',
+                reason: '모바일 배틀로얄의 강자! 100명이 펼치는 생존 게임.',
+                tags: ['무료', '배틀로얄', '모바일']
+            },
+            {
+                name: '하스스톤',
+                genre: 'STRATEGY',
+                platform: ['PC', '모바일'],
+                playStyle: ['competitive', 'casual'],
+                rating: 8.5,
+                icon: '🃏',
+                gradient: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                reason: '블리자드의 카드 게임! 전략적 사고와 덱 빌딩의 재미.',
+                tags: ['무료', '카드', '전략']
             }
         ];
         
@@ -551,11 +650,23 @@ class GameWizard {
         const platformWeight = 30;
         if (this.answers.platform === 'All') {
             score += platformWeight;
-        } else if (game.platform.includes(this.answers.platform)) {
-            score += platformWeight;
         } else {
-            // 플랫폼이 맞지 않으면 0점 반환하여 추천 제외
-            return 0;
+            // 플랫폼 이름 정규화 (Mobile -> 모바일, Console -> 콘솔)
+            const normalizedPlatform = this.answers.platform === '모바일' ? '모바일' : 
+                                      this.answers.platform === '콘솔' ? '콘솔' : 
+                                      this.answers.platform;
+            
+            // 게임의 플랫폼 목록을 정규화하여 확인
+            const normalizedGamePlatforms = game.platform.map(p => 
+                p === '모바일' ? '모바일' : p === '콘솔' ? '콘솔' : p
+            );
+            
+            if (normalizedGamePlatforms.includes(normalizedPlatform)) {
+                score += platformWeight;
+            } else {
+                // 플랫폼이 맞지 않으면 0점 반환하여 추천 제외
+                return 0;
+            }
         }
         totalWeight += platformWeight;
 
