@@ -935,7 +935,7 @@
     <main>
         <h1 class="page-title">추천 게임 모음</h1>
         <p class="page-subtitle">직접 플레이하고 검증한 최고의 게임들을 소개합니다!</p>
-        <p class="game-count" id="gameCount">총 20개의 게임</p>
+        <p class="game-count" id="gameCount">총 0개의 게임</p>
 
         <!-- 검색 및 필터 섹션 -->
         <div class="search-filter-section">
@@ -1818,6 +1818,10 @@
 
         // 검색 입력시 필터 재적용
         searchInput.addEventListener('input', applyFilters);
+
+        // 페이지 로드 시 게임 개수 초기화
+        const totalGames = document.querySelectorAll('.game-link').length;
+        document.getElementById('gameCount').textContent = `총 ${totalGames}개의 게임`;
 
         // 애니메이션 CSS 추가
         const style = document.createElement('style');
