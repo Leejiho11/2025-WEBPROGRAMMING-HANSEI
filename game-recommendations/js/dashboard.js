@@ -1,10 +1,74 @@
-// 현재 날짜 설정
-function setCurrentDate() {
+// 하루마다 게임 통계 데이터 생성
+function generateDailyGameIndex() {
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0]; // YYYY-MM-DD 형식
+    
+    // 저장된 날짜 확인
+    const savedDate = localStorage.getItem('gameIndexDate');
+    
+    // 날짜가 바뀌었거나 저장된 데이터가 없으면 새로 생성
+    if (savedDate !== todayStr) {
+        const newData = {
+            todayIndex: (35 + Math.random() * 15).toFixed(1), // 35-50 사이
+            changeRate: (Math.random() * 20 - 5).toFixed(1), // -5% ~ +15%
+            upGames: Math.floor(Math.random() * 5) + 2, // 2-6개
+            downGames: Math.floor(Math.random() * 4) + 1, // 1-4개
+            neutralGames: Math.floor(Math.random() * 3), // 0-2개
+            totalPlayTime: Math.floor(12000000 + Math.random() * 6000000).toLocaleString(), // 12M-18M
+            pcRoomUsageRate: (12 + Math.random() * 6).toFixed(1) // 12-18%
+        };
+        
+        // localStorage에 저장
+        localStorage.setItem('gameIndexDate', todayStr);
+        localStorage.setItem('gameIndexData', JSON.stringify(newData));
+        
+        return newData;
+    }
+    
+    // 오늘 날짜의 데이터가 있으면 불러오기
+    return JSON.parse(localStorage.getItem('gameIndexData'));
+}
+
+// 게임 통계 UI 업데이트
+function updateGameIndex() {
+    const data = generateDailyGameIndex();
+    
+    // 날짜 표시
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const day = String(today.getDate()).padStart(2, '0');
     document.getElementById('currentDate').textContent = `${year}.${month}.${day}`;
+    
+    // 통계 카드 업데이트
+    const cards = document.querySelectorAll('.index-card');
+    if (cards.length >= 6) {
+        // 게임 인기도 지수
+        cards[0].querySelector('.value').textContent = data.todayIndex;
+        const changeSign = data.changeRate >= 0 ? '▲' : '▼';
+        cards[0].querySelector('.change').textContent = `${changeSign} ${Math.abs(data.changeRate)}%`;
+        cards[0].querySelector('.change').className = data.changeRate >= 0 ? 'change' : 'change negative';
+        
+        // 급상승 게임
+        cards[1].querySelector('.value').textContent = data.upGames;
+        
+        // 급하락 게임
+        cards[2].querySelector('.value').textContent = data.downGames;
+        
+        // 변동 없음
+        cards[3].querySelector('.value').textContent = data.neutralGames;
+        
+        // 총 플레이 타임
+        cards[4].querySelector('.value').textContent = data.totalPlayTime;
+        
+        // PC방 이용률
+        cards[5].querySelector('.value').textContent = data.pcRoomUsageRate + '%';
+    }
+}
+
+// 현재 날짜 설정 (하위 호환용)
+function setCurrentDate() {
+    updateGameIndex();
 }
 
 // 게임 순위 데이터
