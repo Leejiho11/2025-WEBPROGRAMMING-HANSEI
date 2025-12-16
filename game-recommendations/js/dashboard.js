@@ -71,19 +71,71 @@ function setCurrentDate() {
     updateGameIndex();
 }
 
-// 게임 순위 데이터
-const rankingsData = [
-    { rank: 1, name: "리그 오브 레전드", genre: "MOBA", shareRate: "42.5%", playTime: "6,234,567", change: 0, changeType: "neutral", changeRate: "0.0%", icon: "⚔️", class: "lol" },
-    { rank: 2, name: "배틀그라운드", genre: "FPS", shareRate: "15.3%", playTime: "2,456,789", change: 1, changeType: "up", changeRate: "+15.6%", icon: "🎯", class: "pubg" },
-    { rank: 3, name: "발로란트", genre: "FPS", shareRate: "12.8%", playTime: "1,987,654", change: -1, changeType: "down", changeRate: "-5.2%", icon: "⚡", class: "valorant" },
-    { rank: 4, name: "로스트아크", genre: "MMORPG", shareRate: "10.2%", playTime: "1,678,901", change: 1, changeType: "up", changeRate: "+7.5%", icon: "🗡️", class: "lostark" },
-    { rank: 5, name: "메이플스토리", genre: "MMORPG", shareRate: "8.5%", playTime: "1,345,678", change: 2, changeType: "up", changeRate: "+295.5%", icon: "🍁", class: "maplestory" },
-    { rank: 6, name: "FC 온라인", genre: "SPORTS", shareRate: "5.2%", playTime: "789,012", change: 0, changeType: "neutral", changeRate: "+1.2%", icon: "⚽", class: "fc-online" },
-    { rank: 7, name: "던전앤파이터", genre: "ACTION", shareRate: "4.1%", playTime: "678,345", change: -2, changeType: "down", changeRate: "-12.3%", icon: "👊", class: "dnf" },
-    { rank: 8, name: "서든어택", genre: "FPS", shareRate: "3.2%", playTime: "567,890", change: 0, changeType: "neutral", changeRate: "-0.5%", icon: "🔫", class: "sudden-attack" },
-    { rank: 9, name: "오버워치 2", genre: "FPS", shareRate: "2.8%", playTime: "456,123", change: 1, changeType: "up", changeRate: "+8.2%", icon: "🎮", class: "overwatch" },
-    { rank: 10, name: "마인크래프트", genre: "SANDBOX", shareRate: "2.4%", playTime: "389,456", change: -1, changeType: "down", changeRate: "-3.8%", icon: "⛏️", class: "minecraft" }
-];
+// 주간마다 게임 순위 TOP 10 데이터 생성
+function generateWeeklyRankings() {
+    const today = new Date();
+    
+    // 주차 계산 (1년의 몇 번째 주인지)
+    const startOfYear = new Date(today.getFullYear(), 0, 1);
+    const weekNumber = Math.ceil((((today - startOfYear) / 86400000) + startOfYear.getDay() + 1) / 7);
+    
+    // 저장된 주차 확인
+    const savedWeek = localStorage.getItem('rankingsWeek');
+    
+    // 주차가 바뀌었거나 저장된 데이터가 없으면 새로 생성
+    if (savedWeek !== weekNumber.toString()) {
+        // 게임 목록
+        const games = [
+            { name: "리그 오브 레전드", genre: "MOBA", icon: "⚔️", class: "lol", baseShare: 40 },
+            { name: "배틀그라운드", genre: "FPS", icon: "🎯", class: "pubg", baseShare: 15 },
+            { name: "발로란트", genre: "FPS", icon: "⚡", class: "valorant", baseShare: 12 },
+            { name: "로스트아크", genre: "MMORPG", icon: "🗡️", class: "lostark", baseShare: 10 },
+            { name: "메이플스토리", genre: "MMORPG", icon: "🍁", class: "maplestory", baseShare: 8 },
+            { name: "FC 온라인", genre: "SPORTS", icon: "⚽", class: "fc-online", baseShare: 5 },
+            { name: "던전앤파이터", genre: "ACTION", icon: "👊", class: "dnf", baseShare: 4 },
+            { name: "서든어택", genre: "FPS", icon: "🔫", class: "sudden-attack", baseShare: 3 },
+            { name: "오버워치 2", genre: "FPS", icon: "🎮", class: "overwatch", baseShare: 3 },
+            { name: "마인크래프트", genre: "SANDBOX", icon: "⛏️", class: "minecraft", baseShare: 2 }
+        ];
+        
+        // 각 게임에 랜덤 변동 적용
+        const rankings = games.map((game, index) => {
+            const variation = (Math.random() - 0.5) * 4; // -2% ~ +2%
+            const shareRate = (game.baseShare + variation).toFixed(1);
+            const playTime = Math.floor((parseFloat(shareRate) * 150000)).toLocaleString();
+            
+            // 순위 변동 (-2 ~ +2)
+            const change = Math.floor(Math.random() * 5) - 2;
+            const changeType = change > 0 ? 'up' : change < 0 ? 'down' : 'neutral';
+            const changeRate = (Math.random() * 30 - 10).toFixed(1); // -10% ~ +20%
+            
+            return {
+                rank: index + 1,
+                name: game.name,
+                genre: game.genre,
+                shareRate: shareRate + '%',
+                playTime: playTime,
+                change: Math.abs(change),
+                changeType: changeType,
+                changeRate: changeRate >= 0 ? `+${changeRate}%` : `${changeRate}%`,
+                icon: game.icon,
+                class: game.class
+            };
+        });
+        
+        // localStorage에 저장
+        localStorage.setItem('rankingsWeek', weekNumber.toString());
+        localStorage.setItem('rankingsData', JSON.stringify(rankings));
+        
+        return rankings;
+    }
+    
+    // 이번 주 데이터가 있으면 불러오기
+    return JSON.parse(localStorage.getItem('rankingsData'));
+}
+
+// 게임 순위 데이터 (주간 업데이트)
+let rankingsData = generateWeeklyRankings();
 
 let currentFilter = 'all';
 
@@ -241,16 +293,55 @@ function createGenreChart() {
     }
 }
 
+// 하루마다 시간대별 이용현황 데이터 생성
+function generateDailyTimeData() {
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0]; // YYYY-MM-DD 형식
+    
+    // 저장된 날짜 확인
+    const savedDate = localStorage.getItem('timeDataDate');
+    
+    // 날짜가 바뀌었거나 저장된 데이터가 없으면 새로 생성
+    if (savedDate !== todayStr) {
+        // 시간대별 패턴: 새벽(낮음) -> 오후(증가) -> 저녁(피크) -> 심야(감소)
+        const basePattern = [
+            0.4 + Math.random() * 0.3,  // 0시: 40-70%
+            0.3 + Math.random() * 0.2,  // 3시: 30-50%
+            0.35 + Math.random() * 0.25, // 6시: 35-60%
+            0.5 + Math.random() * 0.3,  // 9시: 50-80%
+            0.65 + Math.random() * 0.25, // 12시: 65-90%
+            0.8 + Math.random() * 0.2,  // 15시: 80-100%
+            0.95 + Math.random() * 0.05, // 18시: 95-100% (피크타임 시작)
+            1.0,                         // 21시: 100% (피크타임)
+            0.85 + Math.random() * 0.1   // 24시: 85-95%
+        ];
+        
+        // 기준값 (천명 단위)
+        const peakValue = 15 + Math.random() * 5; // 15-20천명
+        
+        const timeData = {
+            labels: ['0시', '3시', '6시', '9시', '12시', '15시', '18시', '21시', '24시'],
+            values: basePattern.map(ratio => parseFloat((ratio * peakValue).toFixed(1))),
+            actualValues: basePattern.map(ratio => Math.floor(ratio * peakValue * 1000))
+        };
+        
+        // localStorage에 저장
+        localStorage.setItem('timeDataDate', todayStr);
+        localStorage.setItem('timeData', JSON.stringify(timeData));
+        
+        return timeData;
+    }
+    
+    // 오늘 날짜의 데이터가 있으면 불러오기
+    return JSON.parse(localStorage.getItem('timeData'));
+}
+
 // 시간대별 이용현황 차트
 function createTimeChart() {
     const canvas = document.getElementById('timeChart');
     if (!canvas) return; // 차트 캔버스가 없으면 실행 안함
     
-    const timeData = {
-        labels: ['0시', '3시', '6시', '9시', '12시', '15시', '18시', '21시', '24시'],
-        values: [5.2, 3.8, 4.1, 6.5, 8.9, 12.0, 15.5, 18.2, 14.0],
-        actualValues: [5200, 3800, 4100, 6500, 8900, 12000, 15500, 18200, 14000]
-    };
+    const timeData = generateDailyTimeData();
     
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
